@@ -1,4 +1,4 @@
- The following license is applied to the binary codes in the leveldb directory.
+The following license is applied to the binary codes in the leveldb directory.
 
 Copyright (c) 2011 The LevelDB Authors. All rights reserved.
 
