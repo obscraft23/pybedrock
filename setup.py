@@ -2,10 +2,23 @@ from setuptools import setup
 from codecs import open
 from os import path
 
+from distutils.command.register import register as register_orig
+from distutils.command.upload import upload as upload_orig
+
 here = path.abspath(path.dirname(__file__))
 
 with open(path.join(here, 'README.md'), encoding='utf-8') as f:
     long_description = f.read()
+
+class register(register_orig):
+
+    def _get_rc_file(self):
+        return os.path.join('.', '.pypirc')
+
+class upload(upload_orig):
+
+    def _get_rc_file(self):
+        return os.path.join('.', '.pypirc')
 
 setup(
     name='pybedrock',
