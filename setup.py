@@ -1,28 +1,18 @@
-from setuptools import setup
 from codecs import open
 from os import path
-
-from distutils.command.register import register as register_orig
-from distutils.command.upload import upload as upload_orig
+from skbuild import setup
 
 here = path.abspath(path.dirname(__file__))
 
 with open(path.join(here, 'README.md'), encoding='utf-8') as f:
     long_description = f.read()
 
-class register(register_orig):
-
-    def _get_rc_file(self):
-        return os.path.join('.', '.pypirc')
-
-class upload(upload_orig):
-
-    def _get_rc_file(self):
-        return os.path.join('.', '.pypirc')
-
 setup(
     name='pybedrock',
     packages=['pybedrock'],
+
+    cmake_install_dir="pybedrock/build",
+    cmake_source_dir = "./mcberepair",
 
     version='0.0.2',
 
@@ -34,13 +24,14 @@ setup(
 
     url='https://github.com/obscraft23/pybedrock',
 
-    description='A Python package for analysis and modification of world dataset in Minecraft Bedrock',
+    description='A Python package to read/write Minecraft Bedrock leveldb data',
     long_description=long_description,
     long_description_content_type='text/markdown',
-    keywords='Minecraft Bedrock leveldb NTB',
+    keywords='Minecraft Bedrock leveldb',
 
     classifiers=[
         'License :: OSI Approved :: MIT License',
         'Programming Language :: Python :: 3.8',
+        'Programming Language :: C++',
     ],
 )
