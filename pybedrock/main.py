@@ -1,7 +1,15 @@
 import pybedrock.mcberepair as mr
-import pybedrock.nbt
+import pybedrock.nbt as nbt
 
-def loadNBTdatafromkey(wdname,key):
-    
-    nbtbuffer = mr.getNBTfromkey(wdname,key)
-    return nbt.loadNBT(nbtbuffer)
+
+class world():
+    def __init__(self,wdname):
+        self.wdname = wdname
+        self.keycontents = mr.listkeys(self.wdname)
+
+    def updatelistkeys(self):
+        self.keycontents = mr.listkeys(self.wdname)
+
+    def loadNBTdatafromkey(self,key):
+        nbtbuffer = mr.getNBTfromkey(self.wdname,key)
+        return nbt.loadNBT(nbtbuffer)
