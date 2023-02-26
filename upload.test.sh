@@ -5,4 +5,4 @@ rm -rf build
 rm -rf dist
 
 python setup.py bdist_wheel
-twine upload --repository pypi dist/*
+twine upload --repository testpypi dist/*

@@ -14,7 +14,7 @@ setup(
     cmake_install_dir="pybedrock/build",
     cmake_source_dir = "./mcberepair",
 
-    version='0.0.2',
+    version='0.0.3',
 
     license='MIT',
 
