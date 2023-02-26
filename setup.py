@@ -11,14 +11,14 @@ setup(
     name='pybedrock',
     packages=['pybedrock'],
 
-    cmake_install_dir="pybedrock/build",
+    cmake_install_dir="pybedrock/mcberepair",
     cmake_source_dir = "./mcberepair",
 
     version='0.0.3',
 
     license='MIT',
 
-    install_requires=['numpy','tqdm'],
+    install_requires=['amulet-nbt~=2.0.0','numpy','tqdm'],
     author='obscraft23',
     author_email='obscraft23@gmail.com',
 

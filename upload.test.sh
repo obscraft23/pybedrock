@@ -3,6 +3,6 @@
 rm -rf pybedrock.egg-info
 rm -rf build
 rm -rf dist
+rm -rf _skbuild
 
-python setup.py bdist_wheel
-twine upload --repository testpypi dist/*
+#python setup.py bdist_wheel
