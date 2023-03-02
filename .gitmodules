@@ -1,3 +1,3 @@
-[submodule "mcberepair"]
-	path = mcberepair
-	url = https://github.com/reedacartwright/mcberepair.git
+[submodule "pybedrock/clib/leveldb-mcpe"]
+	path = pybedrock/clib/leveldb-mcpe
+	url = https://github.com/reedacartwright/leveldb-mcpe.git

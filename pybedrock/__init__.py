@@ -1,4 +1,5 @@
 from pybedrock.main import *
+from pybedrock.cmodules.lib.libleveldbhandler import *
 
 __copyright__    = 'Copyright (C) 2023 obscraft23'
 __version__      = '0.0.3'

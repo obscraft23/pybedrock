@@ -11,8 +11,8 @@ setup(
     name='pybedrock',
     packages=['pybedrock'],
 
-    cmake_install_dir="pybedrock/mcberepair",
-    cmake_source_dir = "./mcberepair",
+    cmake_install_dir="pybedrock/cmodules",
+    cmake_source_dir = "./pybedrock/clib",
 
     version='0.0.3',
 
