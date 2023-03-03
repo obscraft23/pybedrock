@@ -1,0 +1,15 @@
+/home/yyoshimura/be/pybedrock/_skbuild/linux-x86_64-3.8/cmake-build/CMakeFiles/install/strip.dir
+/home/yyoshimura/be/pybedrock/_skbuild/linux-x86_64-3.8/cmake-build/CMakeFiles/install/local.dir
+/home/yyoshimura/be/pybedrock/_skbuild/linux-x86_64-3.8/cmake-build/CMakeFiles/install.dir
+/home/yyoshimura/be/pybedrock/_skbuild/linux-x86_64-3.8/cmake-build/CMakeFiles/list_install_components.dir
+/home/yyoshimura/be/pybedrock/_skbuild/linux-x86_64-3.8/cmake-build/CMakeFiles/rebuild_cache.dir
+/home/yyoshimura/be/pybedrock/_skbuild/linux-x86_64-3.8/cmake-build/CMakeFiles/edit_cache.dir
+/home/yyoshimura/be/pybedrock/_skbuild/linux-x86_64-3.8/cmake-build/CMakeFiles/leveldbhandler.dir
+/home/yyoshimura/be/pybedrock/_skbuild/linux-x86_64-3.8/cmake-build/leveldb-mcpe/CMakeFiles/install/strip.dir
+/home/yyoshimura/be/pybedrock/_skbuild/linux-x86_64-3.8/cmake-build/leveldb-mcpe/CMakeFiles/install/local.dir
+/home/yyoshimura/be/pybedrock/_skbuild/linux-x86_64-3.8/cmake-build/leveldb-mcpe/CMakeFiles/install.dir
+/home/yyoshimura/be/pybedrock/_skbuild/linux-x86_64-3.8/cmake-build/leveldb-mcpe/CMakeFiles/list_install_components.dir
+/home/yyoshimura/be/pybedrock/_skbuild/linux-x86_64-3.8/cmake-build/leveldb-mcpe/CMakeFiles/rebuild_cache.dir
+/home/yyoshimura/be/pybedrock/_skbuild/linux-x86_64-3.8/cmake-build/leveldb-mcpe/CMakeFiles/leveldbutil.dir
+/home/yyoshimura/be/pybedrock/_skbuild/linux-x86_64-3.8/cmake-build/leveldb-mcpe/CMakeFiles/edit_cache.dir
+/home/yyoshimura/be/pybedrock/_skbuild/linux-x86_64-3.8/cmake-build/leveldb-mcpe/CMakeFiles/leveldb.dir

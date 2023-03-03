@@ -1,0 +1,1 @@
+/usr/bin/c++   -fno-exceptions -fpic -frtti -fpic -O3 -DNDEBUG   CMakeFiles/leveldbutil.dir/db/leveldbutil.cc.o  -o leveldbutil  libleveldb.a -lpthread /usr/lib/x86_64-linux-gnu/libz.so 

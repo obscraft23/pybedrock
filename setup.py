@@ -1,8 +1,14 @@
 from codecs import open
 from os import path
 from skbuild import setup
+import os
 
 here = path.abspath(path.dirname(__file__))
+
+try:
+    os.system('patch -p1 < CMakeLists.txt.patch')
+except:
+    print("WARN: A patch to enable RTTI for leveldb-mcpe is not applied. setup.py may fail.")
 
 with open(path.join(here, 'README.md'), encoding='utf-8') as f:
     long_description = f.read()
