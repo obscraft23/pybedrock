@@ -56,9 +56,9 @@ PyObject* py_readSubchunk(PyObject* self, PyObject* args) {
     uint8_t blocksperword = 32/bitsperblock;
     uint32_t n32bit= (uint32_t)(4096/blocksperword) + 1;
 
-    std::cout << std::to_string(bitsperblock) << std::endl;
-    std::cout << std::to_string(blocksperword) << std::endl;
-    std::cout << std::to_string(n32bit) << std::endl;
+    //std::cout << std::to_string(bitsperblock) << std::endl;
+    //std::cout << std::to_string(blocksperword) << std::endl;
+    //std::cout << std::to_string(n32bit) << std::endl;
     
     uint32_t subchunk_palette_id[16][16][16];
 
