@@ -61,10 +61,10 @@ int c_writebinary(const char* worldfname, const char* inputkey, std::string valu
     leveldb::Status status = db().Put({}, key, value);
 
     if(!status.ok()) {
-        return NULL;
+        return 1;
     }
 
-    return 1;
+    return 0;
 }
 
 PyObject* py_writebinary(PyObject* self, PyObject* args) {

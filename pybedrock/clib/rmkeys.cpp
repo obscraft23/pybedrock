@@ -53,9 +53,9 @@ int c_rmkey(const char* worldfname, const char* inputkey) {
     !mcberepair::decode_key(inputkey, &key);
     status = db().Delete({}, key);
     if(!status.ok()) {
-        return NULL;
+        return 1;
     }
-    return 1;
+    return 0;
 }
 
 PyObject* py_rmkey(PyObject* self, PyObject* args) {
@@ -65,7 +65,7 @@ PyObject* py_rmkey(PyObject* self, PyObject* args) {
     int res;
 
     if (!PyArg_ParseTuple(args, "ss", &worldfname,&inputkey)){
-        return NULL;
+        return 0;
     }
 
     res = c_rmkey(worldfname,inputkey);

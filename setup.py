@@ -18,7 +18,7 @@ setup(
 
     license='MIT',
 
-    install_requires=['amulet-nbt~=2.0.0','numpy','tqdm'],
+    install_requires=['numpy'],
     author='obscraft23',
     author_email='obscraft23@gmail.com',
 
@@ -32,6 +32,9 @@ setup(
     classifiers=[
         'License :: OSI Approved :: MIT License',
         'Programming Language :: Python :: 3.8',
+        'Programming Language :: Python :: 3.9',
+        'Programming Language :: Python :: 3.10',
+        'Programming Language :: Python :: 3.11',
         'Programming Language :: C++',
     ],
 )

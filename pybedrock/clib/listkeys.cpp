@@ -126,7 +126,7 @@ PyObject* py_listkeys(PyObject* self, PyObject* args) {
     }
 
     return keyinfolist;
-}
+};
 
 std::string c_listkeysFromXZ(const char* worldfname, int x, int z, int tag, int yindex) {
     
@@ -147,7 +147,7 @@ std::string c_listkeysFromXZ(const char* worldfname, int x, int z, int tag, int 
     auto it = std::unique_ptr<leveldb::Iterator>{db().NewIterator(readOptions)};
 
     //std::vector<std::string> keyinfo;
-    std::string keyinfo = NULL;
+    std::string keyinfo;
     
     for(it->SeekToFirst(); it->Valid(); it->Next()) {
         auto key = it->key();
@@ -164,4 +164,5 @@ std::string c_listkeysFromXZ(const char* worldfname, int x, int z, int tag, int 
             }
         }
     }
+    return keyinfo;
 }
