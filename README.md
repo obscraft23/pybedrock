@@ -28,7 +28,7 @@ $ pip install git+https://github.com/obscraft23/pybedrock.git
 
 ## Usage
 
-**The Document is under development.**
+**The document is under development.**
 
 ## Demonstrations (Google Colaboratory)
 
@@ -36,7 +36,11 @@ $ pip install git+https://github.com/obscraft23/pybedrock.git
 
 [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/obscraft23/pybedrock/blob/main/blockentity_demo.ipynb)
 
+coming soon!
+
 ## Contributing to the project
+
+coming soon!
 
 ## License
 
