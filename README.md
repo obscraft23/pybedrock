@@ -12,6 +12,7 @@ A python package for analysis and modification of world data in Minecraft Bedroc
 
 ## Installation
 
+### PyPI
 ```terminal
 $ pip install pybedrock
 ```
@@ -20,6 +21,16 @@ You may need to install scikit-build before installing pybedrock.
 
 ```terminal
 $ pip install scikit-build
+```
+
+### GitHub
+
+```terminal
+$ git --recurse-submodules clone https://github.com/obscraft23/pybedrock.git --recurse-submodules
+$ cd pybedrock
+$ patch -p1 << CMakeLists.txt.patch
+$ pip install scikit-build
+$ python3 setup.py install
 ```
 
 ## Usage
