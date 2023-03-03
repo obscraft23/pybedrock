@@ -29,3 +29,24 @@ $ pip install git+https://github.com/obscraft23/pybedrock.git
 ## Usage
 
 **The Document is under development.**
+
+## Demonstrations (Google Colaboratory)
+
+* Make a custom spawner
+
+[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/obscraft23/pybedrock/blob/main/blockentity_demo.ipynb)
+
+## Contributing to the project
+
+## License
+
+This package is distributed under the [MIT license](https://github.com/obscraft23/pybedrock/blob/main/LICENSE).
+
+## Credit
+This package makes use of following repositories with modifications.
+
+* [mcberepair](https://github.com/reedacartwright/mcberepair) by [reedacartwright](https://github.com/reedacartwright) <br>
+[MIT License](https://github.com/reedacartwright/mcberepair/blob/master/LICENSE) Copyright (c) 2018-2019 Reed A. Cartwright <reed@cartwrig.ht>
+
+* [leveldb-mcpe](https://github.com/Mojang/leveldb-mcpe) by [Mojang](https://github.com/Mojang) <br>
+[BSD-3-Clause license](https://github.com/Mojang/leveldb-mcpe/blob/master/LICENSE) Copyright (c) 2011 The LevelDB Authors. All rights reserved.
