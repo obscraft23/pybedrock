@@ -107,15 +107,15 @@ PyObject* py_writeSubchunk(PyObject* self, PyObject* args) {
     PyObject* subchunklist;
     uint32_t subchunk_palette_id[16][16][16];
     uint32_t bitsperblock;
-    uint8_t yindex;
+    uint32_t yindex_;
 
-    if (!PyArg_ParseTuple(args, "Oii", &subchunklist,&bitsperblock,&yindex)){
+    if (!PyArg_ParseTuple(args, "Oii", &subchunklist,&bitsperblock,&yindex_)){
         return NULL;
     }
 
     uint8_t blocksperword = 32/bitsperblock;
     uint32_t n32bit = (uint32_t)(4096/blocksperword) + 1;
-
+    uint8_t yindex = static_cast<uint8_t>(yindex_);
     uint8_t version = 9;
     uint8_t storage_layer = 1;
     uint8_t ptype = (bitsperblock << 1) | 0;
