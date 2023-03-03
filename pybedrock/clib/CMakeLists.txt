@@ -115,7 +115,7 @@ add_library(leveldbhandler SHARED
 target_link_libraries(leveldbhandler leveldb)
 target_include_directories(leveldbhandler PUBLIC "${CMAKE_CURRENT_BINARY_DIR}")
 # Enable Warnings
-target_compile_options(leveldbhandler PUBLIC -fPIC -Wall -Wextra)
+target_compile_options(leveldbhandler PUBLIC -fPIC)# -Wall -Wextra)
 
 install(TARGETS leveldbhandler RUNTIME DESTINATION "${CMAKE_INSTALL_BINDIR}")
 
