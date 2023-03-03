@@ -1,16 +1,24 @@
 /*
-# Copyright (c) 2019 Reed A. Cartwright <reed@cartwright.ht>
+# Copyright (c) 2023 obscraft23 obscraft23@gmail.com
+# The code is distributed under the MIT license.
+# https://github.com/obscraft23/pybedrock/blob/main/LICENSE
 #
+# This code is a modification of a code in mcberepair.
+# https://github.com/reedacartwright/mcberepair 
+# 
+# The original license is as follows:
+# Copyright (c) 2019-2020 Reed A. Cartwright <reed@cartwright.ht>
+# 
 # Permission is hereby granted, free of charge, to any person obtaining a copy
 # of this software and associated documentation files (the "Software"), to deal
 # in the Software without restriction, including without limitation the rights
 # to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
 # copies of the Software, and to permit persons to whom the Software is
 # furnished to do so, subject to the following conditions:
-#
+# 
 # The above copyright notice and this permission notice shall be included in all
 # copies or substantial portions of the Software.
-#
+# 
 # THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
 # IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
 # FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
@@ -19,6 +27,7 @@
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 # SOFTWARE.
 */
+
 #ifndef MCBEREPAIR_DB_HPP
 #define MCBEREPAIR_DB_HPP
 
@@ -38,7 +47,7 @@ class NullLogger : public leveldb::Logger {
 
 class DB {
    public:
-    explicit DB(const char* path, bool create_if_missing = false,
+    explicit DB(const char* path, bool create_if_missing = true, // enable to create new db by obscraft23
                 bool error_if_exists = false)
         : options_{},
           filter_policy_{leveldb::NewBloomFilterPolicy(10)},
