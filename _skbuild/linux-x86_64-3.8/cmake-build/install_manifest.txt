@@ -1,1 +1,0 @@
-/home/yyoshimura/be/pybedrock/_skbuild/linux-x86_64-3.8/cmake-install/pybedrock/cmodules/lib/libleveldbhandler.so
