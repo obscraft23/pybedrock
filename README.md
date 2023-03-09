@@ -13,14 +13,14 @@ A python package for analysis and modification of world data in Minecraft Bedroc
 
 ## Installation
 
-### PyPI
+### stable version from PyPI
 
 ```terminal
 $ pip install scikit-build
 $ pip install pybedrock
 ```
 
-### GitHub
+### latest version from GitHub
 
 ```terminal
 $ pip install scikit-build
