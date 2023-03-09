@@ -5,6 +5,7 @@
 [![](https://img.shields.io/pypi/v/pybedrock.svg?label=PyPI&style=flat-square)](https://pypi.org/pypi/pybedrock/)
 [![](https://img.shields.io/pypi/pyversions/pybedrock.svg?label=Python&color=yellow&style=flat-square)](https://pypi.org/pypi/pybedrock/)
 [![License](https://img.shields.io/badge/license-MIT-blue.svg?label=License&style=flat-square)](LICENSE)
+[![Downloads](https://static.pepy.tech/personalized-badge/pybedrock?period=total&units=international_system&left_color=black&right_color=brightgreen&left_text=Downloads&style=flat-square)](https://pepy.tech/project/pybedrock)
 
 **The package is distributed as a beta-release.**
 
