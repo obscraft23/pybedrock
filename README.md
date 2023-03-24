@@ -31,13 +31,15 @@ $ pip install git+https://github.com/obscraft23/pybedrock.git
 
 **The document is under development.**
 
-## Demonstrations (Google Colaboratory)
+## Demonstrations
 
-* Make a custom spawner
+* Make a custom spawner (Google Colaboratory)
 
 [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/obscraft23/pybedrock/blob/main/blockentity_demo.ipynb)
 
-coming soon!
+* Webapp to edit world data
+
+https://mcbe-edit-web.vercel.app/
 
 ## Contributing to the project
 
