@@ -20,7 +20,7 @@ setup(
     cmake_install_dir="pybedrock/cmodules",
     cmake_source_dir = "./pybedrock/clib",
 
-    version='0.0.4',
+    version='0.0.5',
 
     license='MIT',
 
