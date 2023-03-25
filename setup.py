@@ -1,7 +1,12 @@
 from codecs import open
 from os import path
-from skbuild import setup
 import os
+from pip._internal import main as _main
+try:
+    from skbuild import setup
+except:
+    _main(['install', 'scikit-build'])
+    from skbuild import setup
 
 here = path.abspath(path.dirname(__file__))
 
@@ -20,7 +25,7 @@ setup(
     cmake_install_dir="pybedrock/cmodules",
     cmake_source_dir = "./pybedrock/clib",
 
-    version='0.0.5',
+    version='0.0.6',
 
     license='MIT',
 
