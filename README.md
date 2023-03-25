@@ -35,7 +35,7 @@ $ pip install git+https://github.com/obscraft23/pybedrock.git
 
 * Make a custom spawner (Google Colaboratory)
 
-[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/obscraft23/pybedrock/blob/main/blockentity_demo.ipynb)
+[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/obscraft23/pybedrock/blob/main/demo/blockentity_demo.ipynb)
 
 * Webapp to edit world data
 
