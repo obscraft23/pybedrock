@@ -7,25 +7,29 @@
 [![License](https://img.shields.io/badge/license-MIT-blue.svg?label=License&style=flat-square)](LICENSE)
 [![Downloads](https://static.pepy.tech/personalized-badge/pybedrock?period=total&units=international_system&left_color=black&right_color=brightgreen&left_text=Downloads&style=flat-square)](https://pepy.tech/project/pybedrock)
 
-**The package is distributed as a beta-release.**
-
-A python package for analysis and modification of world data in Minecraft Bedrock.
+A python library for analysis and modification of world data in Minecraft Bedrock.
 
 ## Installation
 
-### stable version from PyPI
-
 ```terminal
-$ pip install scikit-build
 $ pip install pybedrock
 ```
 
-### latest version from GitHub
+## Supported versions
 
-```terminal
-$ pip install scikit-build
-$ pip install git+https://github.com/obscraft23/pybedrock.git
-```
+**Currently, pre-build wheel packages only support Linux OS.**
+
+| | x86_64 | i686 | aarch64 | ppc64le | s390x |
+|---------------|----|-----|-----|-----|-----|
+| CPython 3.6   | ✅  | ✅  | ✅ | ✅  | ✅  |
+| CPython 3.7   | ✅ | ✅  | ✅ | ✅  | ✅  |
+| CPython 3.8   | ✅ | ✅  | ✅ | ✅  | ✅  |
+| CPython 3.9   | ✅ | ✅ | ✅ | ✅  | ✅  |
+| CPython 3.10  | ✅ | ✅  | ✅ | ✅  | ✅  |
+| CPython 3.11  | ✅ | ✅  | ✅ | ✅  | ✅  |
+| PyPy 3.7 v7.3 | ✅ | ✅  | ✅ | N/A | N/A |
+| PyPy 3.8 v7.3 | ✅ | ✅  | ✅ | N/A | N/A |
+| PyPy 3.9 v7.3 | ✅ | ✅  | ✅ | N/A | N/A |
 
 ## Usage
 
@@ -35,7 +39,7 @@ $ pip install git+https://github.com/obscraft23/pybedrock.git
 
 * Make a custom spawner (Google Colaboratory)
 
-[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/obscraft23/pybedrock/blob/main/demo/blockentity_demo.ipynb)
+[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/obscraft23/pybedrock/blob/main/blockentity_demo.ipynb)
 
 * Webapp to edit world data
 
