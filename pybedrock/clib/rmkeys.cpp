@@ -50,7 +50,7 @@ int c_rmkey(const char* worldfname, const char* inputkey) {
     leveldb::Status status;
 
     std::string key;
-    !mcberepair::decode_key(inputkey, &key);
+    mcberepair::decode_key(inputkey, &key);
     status = db().Delete({}, key);
     if(!status.ok()) {
         return 1;
