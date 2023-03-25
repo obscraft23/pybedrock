@@ -37,8 +37,8 @@ if("${CMAKE_SOURCE_DIR}" STREQUAL "${CMAKE_BINARY_DIR}")
   message(FATAL_ERROR "In-source builds not allowed. Please run CMake from the './build' directory. You may need to remove CMakeCache.txt.")
 endif()
 
-set(CMAKE_C_COMPILER "gcc")
-set(CMAKE_CXX_COMPILER "g++")
+#set(CMAKE_C_COMPILER "gcc")
+#set(CMAKE_CXX_COMPILER "g++")
 ################################################################################
 #  Project Configuration
 
@@ -117,7 +117,10 @@ add_library(leveldbhandler SHARED
 target_link_libraries(leveldbhandler leveldb)
 target_include_directories(leveldbhandler PUBLIC "${CMAKE_CURRENT_BINARY_DIR}")
 # Enable Warnings
-target_compile_options(leveldbhandler PUBLIC -fPIC)# -Wall -Wextra)
+#target_compile_options(leveldbhandler PUBLIC -fPIC)# -Wall -Wextra)
+target_compile_options(leveldbhandler PUBLIC -fPIC 
+  $<$<OR:$<CXX_COMPILER_ID:Clang>,$<CXX_COMPILER_ID:AppleClang>,$<CXX_COMPILER_ID:GNU>>:-Wall -Wextra>
+     $<$<CXX_COMPILER_ID:MSVC>:/W4>)
 
 install(TARGETS leveldbhandler RUNTIME DESTINATION "${CMAKE_INSTALL_BINDIR}")
 
