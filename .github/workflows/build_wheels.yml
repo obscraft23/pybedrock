@@ -14,11 +14,10 @@ jobs:
         os: [macos-11]
 
     steps:
+      - run: brew install snappy
       - uses: actions/checkout@v3
         with:
           submodules: recursive
-      
-      - uses: brew install snappy
 
       - name: Build wheels
         uses: pypa/cibuildwheel@v2.12.1
