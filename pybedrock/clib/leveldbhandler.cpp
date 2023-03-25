@@ -29,7 +29,7 @@ static PyMethodDef leveldbMethods[] = {
     { "writeNBT", py_writeNBT, METH_VARARGS, "write uncompressed nbt data (little-endian)." },
     { "readSubchunk", py_readSubchunk, METH_VARARGS, "read subchunk data." },
     { "writeSubchunk", py_writeSubchunk, METH_VARARGS, "write subchunk data." },
-    { NULL }
+    { NULL },
 };
  
 // myModule definition struct
