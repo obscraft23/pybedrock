@@ -138,6 +138,6 @@ install(TARGETS leveldbhandler RUNTIME DESTINATION "${CMAKE_INSTALL_BINDIR}")
 
 # copy any dlls installed by vcpkg on windows
 if(VCPKG_APPLOCAL_DEPS AND VCPKG_TARGET_TRIPLET MATCHES "windows|uwp")
-  install(DIRECTORY $<TARGET_FILE_DIR:pybedrock>/
+  install(DIRECTORY $<TARGET_FILE_DIR:leveldbhandler>/
     TYPE BIN FILES_MATCHING PATTERN "*.dll")
 endif()
