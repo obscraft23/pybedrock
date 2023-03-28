@@ -475,7 +475,7 @@ std::string pyObj2byte(PyObject* pyvalue, uint8_t btype, const char* tagname, bo
         }
         uint8_t EndTag = 0;
         
-        char bufferEnd[sizeof(char)];
+        char* bufferEnd new char[sizeof(char)];
         memcpy(&bufferEnd[0],&EndTag,sizeof(EndTag));
         std::string bufferEnd_(&bufferEnd[0],1);
         buffer += bufferEnd_;

@@ -132,7 +132,7 @@ PyObject* py_writeSubchunk(PyObject* self, PyObject* args) {
         }
     }
 
-    char buffer[(4+4*n32bit+4)];
+    char* buffer = new char[(4+4*n32bit+4)];
     int index = 0;
     memcpy(&buffer[index],&version,1);
     index += 1;
