@@ -22,6 +22,7 @@ targetcmakelists = path.join(here, 'pybedrock/clib/leveldb-mcpe/CMakeLists.txt')
 
 shutil.copy(patchcmakelists,targetcmakelists)
 
+"""
 if platform.system() == 'windows':
     pwd = os.getcwd()
     zlibpath = path.join(here,"zlib/")
@@ -41,7 +42,7 @@ if platform.system() == 'windows':
     os.system('cmake --build . --config RELEASE')
     os.system('cmake --build . --config RELEASE --target INSTALL')
     os.chdir(pwd)
-        
+"""
 
 with open(path.join(here, 'README.md'), encoding='utf-8') as f:
     long_description = f.read()
