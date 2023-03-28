@@ -67,7 +67,7 @@ add_subdirectory(leveldb-mcpe)
 if(CMAKE_CXX_COMPILER_ID STREQUAL "MSVC")
   # Enable RTTI.
   string(REGEX REPLACE "/GR" "" CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS}")
-  set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} /GR")
+  set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} /GR /MD")
   set(CMAKE_POSITION_INDEPENDENT_CODE ON)
 else()
   # Enable RTTI.
@@ -125,7 +125,7 @@ target_include_directories(leveldbhandler PUBLIC "${CMAKE_CURRENT_BINARY_DIR}")
 
 if(CMAKE_CXX_COMPILER_ID STREQUAL "MSVC")
   set(CMAKE_POSITION_INDEPENDENT_CODE ON)
-  target_compile_options(leveldbhandler PUBLIC /GR
+  target_compile_options(leveldbhandler PUBLIC /GR /MD
     $<$<OR:$<CXX_COMPILER_ID:Clang>,$<CXX_COMPILER_ID:AppleClang>,$<CXX_COMPILER_ID:GNU>>:-Wall -Wextra>
       $<$<CXX_COMPILER_ID:MSVC>:/W4>)
 else()
@@ -138,6 +138,6 @@ install(TARGETS leveldbhandler RUNTIME DESTINATION "${CMAKE_INSTALL_BINDIR}")
 
 # copy any dlls installed by vcpkg on windows
 if(VCPKG_APPLOCAL_DEPS AND VCPKG_TARGET_TRIPLET MATCHES "windows|uwp")
-  install(DIRECTORY $<TARGET_FILE_DIR:leveldbhandler>/
+  install(DIRECTORY $<TARGET_FILE_DIR:clib>/
     TYPE BIN FILES_MATCHING PATTERN "*.dll")
 endif()
