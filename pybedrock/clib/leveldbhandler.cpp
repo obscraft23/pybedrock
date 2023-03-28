@@ -15,6 +15,7 @@ PyObject* py_loadbinary(PyObject* self, PyObject* args);
 PyObject* py_writebinary(PyObject* self, PyObject* args);
 PyObject* py_rmkey(PyObject* self, PyObject* args);
 PyObject* py_readNBT(PyObject* self, PyObject* args);
+PyObject* py_readNBT_big(PyObject* self, PyObject* args);
 PyObject* py_writeNBT(PyObject* self, PyObject* args);
 PyObject* py_readSubchunk(PyObject* self, PyObject* args);
 PyObject* py_writeSubchunk(PyObject* self, PyObject* args);
@@ -26,6 +27,7 @@ static PyMethodDef leveldbMethods[] = {
     { "writebinary", py_writebinary, METH_VARARGS, "write binary to a key." },
     { "rmkey", py_rmkey, METH_VARARGS, "remove a key from leveldb." },
     { "readNBT", py_readNBT, METH_VARARGS, "read uncompressed nbt data (little-endian)." },
+    { "readNBTbig", py_readNBT_big, METH_VARARGS, "read uncompressed nbt data (big-endian)." },
     { "writeNBT", py_writeNBT, METH_VARARGS, "write uncompressed nbt data (little-endian)." },
     { "readSubchunk", py_readSubchunk, METH_VARARGS, "read subchunk data." },
     { "writeSubchunk", py_writeSubchunk, METH_VARARGS, "write subchunk data." },

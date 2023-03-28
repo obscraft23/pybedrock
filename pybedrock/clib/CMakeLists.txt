@@ -107,6 +107,7 @@ add_library(leveldbhandler SHARED
   writekey.cpp
   rmkeys.cpp
   readNBT.cpp
+  readNBT_big.cpp
   writeNBT.cpp
   subchunk.cpp
   db.hpp
