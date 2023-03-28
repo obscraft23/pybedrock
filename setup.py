@@ -49,6 +49,10 @@ with open(path.join(here, 'README.md'), encoding='utf-8') as f:
 
 print("########################################################")
 print(platform.system())
+if os.path.exists('C:\Users\runneradmin\AppData\Local\pypa\cibuildwheel\Cache\nuget-cpython\pythonx86.3.6.8\tools\libs\python36.lib'):
+    print("OK")
+else:
+    print("NO")
 print("########################################################")
 
 import sysconfig
