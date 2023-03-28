@@ -12,24 +12,37 @@ jobs:
     - uses: actions/checkout@v3
       with:
         submodules: recursive
-
-    - name: Create directory
-      run: mkdir ${{github.workspace}}\build
-      shell: cmd
-
-    - name: Install
-      working-directory: ${{github.workspace}}/build
-      run: powershell -Command "(Invoke-WebRequest -Uri https://git.io/JnHTY -OutFile install_zlib.bat)"; ./install_zlib.bat; del install_zlib.bat
-      shell: cmd
-
-    - name: Test
+    
+    - name: Add msbuild to PATH
+      uses: microsoft/setup-msbuild@v1.0.2
+    
+    - name: Install Server-Media-Foundation
+      shell: powershell
       run: |
-        if NOT exist "%PROGRAMFILES%"\zlib\lib\zlib.lib exit 1
-        if NOT exist "%PROGRAMFILES%"\zlib\bin\zlib.dll exit 1
-        if NOT exist "%PROGRAMFILES%"\zlib\include\zconf.h exit 1
-        if NOT exist "%PROGRAMFILES%"\zlib\include\zlib.h exit 1
-        if NOT exist "%PROGRAMFILES%"\zlib\lib\zlib.lib exit 1
-      shell: cmd
+        Install-WindowsFeature Server-Media-Foundation
+    
+    - name: Vcpkg
+      run: |
+        vcpkg install zlib:x64-windows
+        vcpkg integrate install
+
+    #- name: Create directory
+    #  run: mkdir ${{github.workspace}}\build
+    #  shell: cmd
+
+    # - name: Install
+    #   working-directory: ${{github.workspace}}/build
+    #   run: powershell -Command "(Invoke-WebRequest -Uri https://git.io/JnHTY -OutFile install_zlib.bat)"; ./install_zlib.bat; del install_zlib.bat
+    #   shell: cmd
+
+    # - name: Test
+    #   run: |
+    #     if NOT exist "%PROGRAMFILES%"\zlib\lib\zlib.lib exit 1
+    #     if NOT exist "%PROGRAMFILES%"\zlib\bin\zlib.dll exit 1
+    #     if NOT exist "%PROGRAMFILES%"\zlib\include\zconf.h exit 1
+    #     if NOT exist "%PROGRAMFILES%"\zlib\include\zlib.h exit 1
+    #     if NOT exist "%PROGRAMFILES%"\zlib\lib\zlib.lib exit 1
+    #   shell: cmd
     
     - name: Build wheels
       uses: pypa/cibuildwheel@v2.12.1
