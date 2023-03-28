@@ -52,7 +52,8 @@ libdir = sysconfig.get_path('include').replace("Include","libs")
 print("########################################################")
 print(platform.system())
 if libdir != None:
-    os.environ["LIBDIR"] = libdir
+    os.environ["LIBPATH"] = libdir
+    os.environ["LIB"] = libdir
     print(libdir)
 else:
     print(here)
