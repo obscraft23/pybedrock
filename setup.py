@@ -53,8 +53,14 @@ print("########################################################")
 print(platform.system())
 if libdir != None:
     os.environ["LIBPATH"] = libdir
-    #os.environ["LIB"] = libdir
+    try:
+        os.environ["LIB"] += ";"+libdir
+    except:
+        os.environ["LIB"] = libdir
     print(libdir)
+    print(os.environ["LIB"])
+    print(os.environ["LIBPATH"])
+
 else:
     print(here)
     print("NO LIB!!!!!")
