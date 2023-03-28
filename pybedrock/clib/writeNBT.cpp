@@ -396,7 +396,7 @@ std::string pyObj2byte(PyObject* pyvalue, uint8_t btype, const char* tagname, bo
             bufferPresize = sizeof(btype_List) + sizeof(List_length);
         }
 
-        char bufferPre[bufferPresize * sizeof(char)];
+        char* bufferPre = new char[bufferPresize * sizeof(char)];
         
         int index=0;
         if (nameless == false) {
@@ -444,7 +444,7 @@ std::string pyObj2byte(PyObject* pyvalue, uint8_t btype, const char* tagname, bo
         if (nameless == false) {
             size_t bufferPresize = sizeof(btype) + sizeof(name_len) + sizeof(char)*name_len;
 
-            char bufferPre[bufferPresize * sizeof(char)];
+            char* bufferPre = new char[bufferPresize * sizeof(char)];
             
             int index=0;
             memcpy(&bufferPre[index],&btype,sizeof(btype));
