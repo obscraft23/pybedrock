@@ -2,6 +2,7 @@ from codecs import open
 from os import path
 import os
 from pip._internal import main as _main
+import shutil
 try:
     from skbuild import setup
 except:
@@ -19,7 +20,8 @@ except:
 
 patchcmakelists = path.join(here, 'CMakeLists.leveldb-mcpe.txt')
 targetcmakelists = path.join(here, 'pybedrock/clib/leveldb-mcpe/CMakeLists.txt')
-os.system('cp -r '+patchcmakelists+' '+targetcmakelists)
+
+shutil.copytree(patchcmakelists,targetcmakelists)
 
 with open(path.join(here, 'README.md'), encoding='utf-8') as f:
     long_description = f.read()
