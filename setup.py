@@ -47,16 +47,19 @@ if platform.system() == 'windows':
 with open(path.join(here, 'README.md'), encoding='utf-8') as f:
     long_description = f.read()
 
-print("########################################################")
-print(platform.system())
-if os.path.exists('C:\Users\runneradmin\AppData\Local\pypa\cibuildwheel\Cache\nuget-cpython\pythonx86.3.6.8\tools\libs\python36.lib'):
-    print("OK")
-else:
-    print("NO")
-print("########################################################")
-
 import sysconfig
 libdir = sysconfig.get_path('include').replace("Include","libs")
+print("########################################################")
+print(platform.system())
+if libdir != None:
+    os.environ["LIBDIR"] = libdir
+    print(libdir)
+else:
+    print(here)
+    print("NO LIB!!!!!")
+print("########################################################")
+
+
 setup(
     name='pybedrock',
     packages=['pybedrock'],
