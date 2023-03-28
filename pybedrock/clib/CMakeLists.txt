@@ -67,7 +67,8 @@ add_subdirectory(leveldb-mcpe)
 if(CMAKE_CXX_COMPILER_ID STREQUAL "MSVC")
   # Enable RTTI.
   string(REGEX REPLACE "/GR" "" CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS}")
-  set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} /GR -fpic")
+  set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} /GR")
+  set(CMAKE_POSITION_INDEPENDENT_CODE ON)
 else()
   # Enable RTTI.
   string(REGEX REPLACE "-frtti" "" CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS}")
@@ -121,9 +122,17 @@ target_include_directories(leveldbhandler PUBLIC "${CMAKE_CURRENT_BINARY_DIR}")
 #target_compile_options(leveldbhandler PUBLIC -fPIC)# -Wall -Wextra)
 #SET(CMAKE_C_ARCHIVE_FINISH   "<CMAKE_RANLIB> -no_warning_for_no_symbols -c <TARGET>")
 #SET(CMAKE_CXX_ARCHIVE_FINISH "<CMAKE_RANLIB> -no_warning_for_no_symbols -c <TARGET>")
-target_compile_options(leveldbhandler PUBLIC -fPIC 
+
+if(CMAKE_CXX_COMPILER_ID STREQUAL "MSVC")
+  set(CMAKE_POSITION_INDEPENDENT_CODE ON)
+  target_compile_options(leveldbhandler PUBLIC /GR
+    $<$<OR:$<CXX_COMPILER_ID:Clang>,$<CXX_COMPILER_ID:AppleClang>,$<CXX_COMPILER_ID:GNU>>:-Wall -Wextra>
+      $<$<CXX_COMPILER_ID:MSVC>:/W4>)
+else()
+  target_compile_options(leveldbhandler PUBLIC -fPIC 
   $<$<OR:$<CXX_COMPILER_ID:Clang>,$<CXX_COMPILER_ID:AppleClang>,$<CXX_COMPILER_ID:GNU>>:-Wall -Wextra>
-     $<$<CXX_COMPILER_ID:MSVC>:/W4>)
+    $<$<CXX_COMPILER_ID:MSVC>:/W4>)
+endif()
 
 install(TARGETS leveldbhandler RUNTIME DESTINATION "${CMAKE_INSTALL_BINDIR}")
 
