@@ -3,25 +3,45 @@ from os import path
 import os
 from pip._internal import main as _main
 import shutil
+import platform
+import tarfile
+
 try:
     from skbuild import setup
+    import requests
 except:
     _main(['install', 'scikit-build'])
+    _main(['install', 'requests'])
     from skbuild import setup
+    import requests
 
 here = path.abspath(path.dirname(__file__))
-
-"""
-try:
-    os.system('patch -p1 < CMakeLists.txt.patch')
-except:
-    print("WARN: A patch to enable RTTI for leveldb-mcpe is not applied. setup.py may fail.")
-"""
 
 patchcmakelists = path.join(here, 'CMakeLists.leveldb-mcpe.txt')
 targetcmakelists = path.join(here, 'pybedrock/clib/leveldb-mcpe/CMakeLists.txt')
 
 shutil.copy(patchcmakelists,targetcmakelists)
+
+if platform.system() == 'windows':
+    pwd = os.getcwd()
+    zlibpath = path.join(here,"zlib/")
+    os.makedirs(zlibpath,exist_ok=True)
+    os.chdir(zlibpath)
+    res = requests.get('https://zlib.net/zlib-1.2.13.tar.gz')
+    with open(zlibpath+'zlib-1.2.13.tar.gz') as f:
+        f.write(res.content)
+    with tarfile.open('test.tar.gz', 'r:gz') as tar:
+        tar.extractall(path='./')
+    os.chdir('zlib-1.2.13')
+    if os.path.exists('build/'):
+        shutil.rmtree('build/')
+    os.makedirs('build/', exist_ok=True)
+    os.chdir()
+    os.system('cmake .. -G "Visual Studio 17 2022" -A x64 -T host=x64 -DCMAKE_INSTALL_PREFIX="c:/zlib-1.2.12"')
+    os.system('cmake --build . --config RELEASE')
+    os.system('cmake --build . --config RELEASE --target INSTALL')
+    os.chdir(pwd)
+        
 
 with open(path.join(here, 'README.md'), encoding='utf-8') as f:
     long_description = f.read()
