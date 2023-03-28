@@ -67,7 +67,7 @@ setup(
 
     cmake_install_dir="pybedrock/cmodules",
     cmake_source_dir = "./pybedrock/clib",
-    cmake_args=['-DPYTHON_LIBRARY='+libdir,'-DCMAKE_BUILD_TYPE=Release','-DVCPKG_TARGET_TRIPLET=x64-windows','-DCMAKE_TOOLCHAIN_FILE=C:/vcpkg/scripts/buildsystems/vcpkg.cmake'],
+    cmake_args=['-DCMAKE_BUILD_TYPE=Release','-DVCPKG_TARGET_TRIPLET=x64-windows','-DCMAKE_TOOLCHAIN_FILE=C:/vcpkg/scripts/buildsystems/vcpkg.cmake'],
 
     version='0.0.6',
 
