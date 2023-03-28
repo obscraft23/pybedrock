@@ -50,14 +50,16 @@ with open(path.join(here, 'README.md'), encoding='utf-8') as f:
 print("########################################################")
 print(platform.system())
 print("########################################################")
-    
+
+import sysconfig
+libdir = sysconfig.get_path('include').replace("Include","libs")
 setup(
     name='pybedrock',
     packages=['pybedrock'],
 
     cmake_install_dir="pybedrock/cmodules",
     cmake_source_dir = "./pybedrock/clib",
-    cmake_args=['-DCMAKE_BUILD_TYPE=Release','-DVCPKG_TARGET_TRIPLET=x64-windows','-DCMAKE_TOOLCHAIN_FILE=C:/vcpkg/scripts/buildsystems/vcpkg.cmake'],
+    cmake_args=['-DPYTHON_LIBRARY='+libdir,'-DCMAKE_BUILD_TYPE=Release','-DVCPKG_TARGET_TRIPLET=x64-windows','-DCMAKE_TOOLCHAIN_FILE=C:/vcpkg/scripts/buildsystems/vcpkg.cmake'],
 
     version='0.0.6',
 
