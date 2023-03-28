@@ -47,39 +47,74 @@ if platform.system() == 'windows':
 with open(path.join(here, 'README.md'), encoding='utf-8') as f:
     long_description = f.read()
 
-#if platform.system() == 'windows':
+if platform.system() == 'Windows':
     
-setup(
-    name='pybedrock',
-    packages=['pybedrock'],
+    setup(
+        name='pybedrock',
+        packages=['pybedrock'],
 
-    cmake_install_dir="pybedrock/cmodules",
-    cmake_source_dir = "./pybedrock/clib",
-    cmake_args=['-DVCPKG_TARGET_TRIPLET=x64-windows','-DCMAKE_TOOLCHAIN_FILE=C:/vcpkg/scripts/buildsystems/vcpkg.cmake'],
+        cmake_install_dir="pybedrock/cmodules",
+        cmake_source_dir = "./pybedrock/clib",
+        cmake_args=['-DVCPKG_TARGET_TRIPLET=x64-windows','-DCMAKE_TOOLCHAIN_FILE=C:/vcpkg/scripts/buildsystems/vcpkg.cmake'],
 
-    version='0.0.6',
+        version='0.0.6',
 
-    license='MIT',
+        license='MIT',
 
-    install_requires=['numpy'],
-    author='obscraft23',
-    author_email='obscraft23@gmail.com',
+        install_requires=['numpy'],
+        author='obscraft23',
+        author_email='obscraft23@gmail.com',
 
-    url='https://github.com/obscraft23/pybedrock',
+        url='https://github.com/obscraft23/pybedrock',
 
-    description='A Python package to read/write Minecraft Bedrock leveldb data',
-    long_description=long_description,
-    long_description_content_type='text/markdown',
-    keywords='Minecraft Bedrock leveldb',
+        description='A Python package to read/write Minecraft Bedrock leveldb data',
+        long_description=long_description,
+        long_description_content_type='text/markdown',
+        keywords='Minecraft Bedrock leveldb',
 
-    classifiers=[
-        'License :: OSI Approved :: MIT License',
-        'Programming Language :: Python :: 3.6',
-        'Programming Language :: Python :: 3.7',
-        'Programming Language :: Python :: 3.8',
-        'Programming Language :: Python :: 3.9',
-        'Programming Language :: Python :: 3.10',
-        'Programming Language :: Python :: 3.11',
-        'Programming Language :: C++',
-    ],
-)
+        classifiers=[
+            'License :: OSI Approved :: MIT License',
+            'Programming Language :: Python :: 3.6',
+            'Programming Language :: Python :: 3.7',
+            'Programming Language :: Python :: 3.8',
+            'Programming Language :: Python :: 3.9',
+            'Programming Language :: Python :: 3.10',
+            'Programming Language :: Python :: 3.11',
+            'Programming Language :: C++',
+        ],
+    )
+
+else:
+    setup(
+        name='pybedrock',
+        packages=['pybedrock'],
+
+        cmake_install_dir="pybedrock/cmodules",
+        cmake_source_dir = "./pybedrock/clib",
+        
+        version='0.0.6',
+
+        license='MIT',
+
+        install_requires=['numpy'],
+        author='obscraft23',
+        author_email='obscraft23@gmail.com',
+
+        url='https://github.com/obscraft23/pybedrock',
+
+        description='A Python package to read/write Minecraft Bedrock leveldb data',
+        long_description=long_description,
+        long_description_content_type='text/markdown',
+        keywords='Minecraft Bedrock leveldb',
+
+        classifiers=[
+            'License :: OSI Approved :: MIT License',
+            'Programming Language :: Python :: 3.6',
+            'Programming Language :: Python :: 3.7',
+            'Programming Language :: Python :: 3.8',
+            'Programming Language :: Python :: 3.9',
+            'Programming Language :: Python :: 3.10',
+            'Programming Language :: Python :: 3.11',
+            'Programming Language :: C++',
+        ],
+    )

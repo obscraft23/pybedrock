@@ -46,7 +46,7 @@ std::string pyObj2byte(PyObject* pyvalue, uint8_t btype, const char* tagname, bo
             buffersize = sizeof(value);
         }
 
-        char buffer[buffersize * sizeof(char)];
+        char* buffer = new char[buffersize * sizeof(char)];
             
         int index=0;
         if (nameless == false) {
@@ -77,7 +77,7 @@ std::string pyObj2byte(PyObject* pyvalue, uint8_t btype, const char* tagname, bo
             buffersize = sizeof(value);
         }
 
-        char buffer[buffersize * sizeof(char)];
+        char* buffer = new char[buffersize * sizeof(char)];
             
         int index=0;
         if (nameless == false) {
@@ -108,7 +108,7 @@ std::string pyObj2byte(PyObject* pyvalue, uint8_t btype, const char* tagname, bo
             buffersize = sizeof(value);
         }
 
-        char buffer[buffersize * sizeof(char)];
+        char* buffer = new char[buffersize * sizeof(char)];
             
         int index=0;
         if (nameless == false) {
@@ -139,7 +139,7 @@ std::string pyObj2byte(PyObject* pyvalue, uint8_t btype, const char* tagname, bo
             buffersize = sizeof(value);
         }
 
-        char buffer[buffersize * sizeof(char)];
+        char* buffer = new char[buffersize * sizeof(char)];
             
         int index=0;
         if (nameless == false) {
@@ -170,7 +170,7 @@ std::string pyObj2byte(PyObject* pyvalue, uint8_t btype, const char* tagname, bo
             buffersize = sizeof(value);
         }
 
-        char buffer[buffersize * sizeof(char)];
+        char* buffer = new char[buffersize * sizeof(char)];
             
         int index=0;
         if (nameless == false) {
@@ -201,7 +201,7 @@ std::string pyObj2byte(PyObject* pyvalue, uint8_t btype, const char* tagname, bo
             buffersize = sizeof(value);
         }
 
-        char buffer[buffersize * sizeof(char)];
+        char* buffer = new char[buffersize * sizeof(char)];
             
         int index=0;
         if (nameless == false) {
@@ -237,7 +237,7 @@ std::string pyObj2byte(PyObject* pyvalue, uint8_t btype, const char* tagname, bo
         std::cout << tagname << " : ";
         std::cout << value << " : ";
         std::cout << std::to_string(static_cast<int>(buffersize)) << std::endl;
-        char buffer[buffersize * sizeof(char)];
+        char* buffer = new char[buffersize * sizeof(char)];
             
         int index=0;
         if (nameless == false) {
@@ -274,7 +274,7 @@ std::string pyObj2byte(PyObject* pyvalue, uint8_t btype, const char* tagname, bo
             buffersize = sizeof(array_length) + sizeof(int8_t)*array_length;
         }
         
-        char buffer[buffersize * sizeof(char)];
+        char* buffer = new char[buffersize * sizeof(char)];
             
         int index=0;
         if (nameless == false) {
@@ -313,7 +313,7 @@ std::string pyObj2byte(PyObject* pyvalue, uint8_t btype, const char* tagname, bo
             buffersize = sizeof(array_length) + sizeof(int32_t)*array_length;
         }
         
-        char buffer[buffersize * sizeof(char)];
+        char* buffer = new char[buffersize * sizeof(char)];
             
         int index=0;
         if (nameless == false) {
@@ -352,7 +352,7 @@ std::string pyObj2byte(PyObject* pyvalue, uint8_t btype, const char* tagname, bo
             buffersize = sizeof(array_length) + sizeof(int64_t)*array_length;
         }
         
-        char buffer[buffersize * sizeof(char)];
+        char* buffer = new char[buffersize * sizeof(char)];
             
         int index=0;
         if (nameless == false) {
