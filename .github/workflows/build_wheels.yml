@@ -23,7 +23,7 @@ jobs:
     
     - name: Vcpkg
       run: |
-        vcpkg install zlib:x64-windows
+        vcpkg install zlib:x64-windows --triplet x64-windows
         vcpkg integrate install
 
     #- name: Create directory
