@@ -293,7 +293,8 @@ target_link_libraries(leveldb Threads::Threads)
 
 find_package(ZLIB REQUIRED)
 #target_link_libraries(leveldb ZLIB::ZLIB)
-include_directories(${ZLIB_INCLUDE_DIRS})
+set(ZLIB_LIBRARIES C:/vcpkg/installed/x64-windows/lib/zlib.lib)
+include_directories(C:/vcpkg/installed/x64-windows/include)
 target_link_libraries(leveldb ${ZLIB_LIBRARIES})
 
 if (WIN32)
