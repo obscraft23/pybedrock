@@ -65,6 +65,8 @@ if libdir != None:
     
     print(os.environ["LIB"])
     print(os.environ["LIBPATH"])
+    print(os.environ["ZLIB_INCLUDE_DIRS"])
+    print(os.environ["ZLIB_LIBRARIES"])
 
 else:
     print(here)

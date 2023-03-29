@@ -294,7 +294,11 @@ target_link_libraries(leveldb Threads::Threads)
 find_package(ZLIB REQUIRED)
 #target_link_libraries(leveldb ZLIB::ZLIB)
 include_directories(${ZLIB_INCLUDE_DIRS})
-link_libraries(${ZLIB_LIBRARIES})
+target_link_libraries(leveldb ${ZLIB_LIBRARIES})
+
+if (WIN32)
+  add_definitions(-DLEVELDB_PLATFORM_WINDOWS "-DDLLX=__declspec(dllexport)")
+endif(WIN32)
 
 add_executable(leveldbutil
   "db/leveldbutil.cc"
