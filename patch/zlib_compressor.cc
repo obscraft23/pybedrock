@@ -3,9 +3,8 @@
 #include "leveldb/zlib_compressor.h"
 
 //#pragma comment(lib, "C:/vcpkg/installed/x64-windows/lib/zlib.lib" )
-#ifndef ZLIB_WINAPI
-#	define ZLIB_WINAPI
-#endif
+
+#define ZLIB_WINAPI
 #include <zlib.h>
 #include <algorithm>
 
