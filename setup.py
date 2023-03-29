@@ -17,7 +17,7 @@ except:
 
 here = path.abspath(path.dirname(__file__))
 
-patchcmakelists = path.join(here, 'patch/CMakeLists.leveldb-mcpe.txt')
+patchcmakelists = path.join(here, 'patch/CMakeLists.txt')
 targetcmakelists = path.join(here, 'pybedrock/clib/leveldb-mcpe/CMakeLists.txt')
 
 shutil.copy(patchcmakelists,targetcmakelists)
@@ -56,11 +56,11 @@ libdir = sysconfig.get_path('include').replace("Include","libs")
 print("########################################################")
 print(platform.system())
 if libdir != None:
-    os.environ["LIBPATH"] = libdir+r";C:\vcpkg\installed\x64-windows\lib"
+    os.environ["LIBPATH"] = libdir
     try:
-        os.environ["LIB"] += ";"+libdir+";C:\vcpkg\installed\x64-windows\lib"
+        os.environ["LIB"] += ";"+libdir
     except:
-        os.environ["LIB"] = libdir+r";C:\vcpkg\installed\x64-windows\lib"
+        os.environ["LIB"] = libdir
     print(libdir)
     
     print(os.environ["LIB"])
