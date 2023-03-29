@@ -29,7 +29,6 @@ int32_t getInt(char** const pfirst) {
     memcpy(&value, p, sizeof(value));
     *pfirst = p + sizeof(value);
     return value;
-    
 };
 uint32_t getuInt(char** const pfirst) {
     char *p = *pfirst;

@@ -22,6 +22,10 @@ targetcmakelists = path.join(here, 'pybedrock/clib/leveldb-mcpe/CMakeLists.txt')
 
 shutil.copy(patchcmakelists,targetcmakelists)
 
+patchcmakelists = path.join(here, 'zlib_compressor.cc')
+targetcmakelists = path.join(here, 'pybedrock/clib/leveldb-mcpe/db/zlib_compressor.cc')
+shutil.copy(patchcmakelists,targetcmakelists)
+
 """
 if platform.system() == 'windows':
     pwd = os.getcwd()
