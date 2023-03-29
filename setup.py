@@ -17,7 +17,7 @@ except:
 
 here = path.abspath(path.dirname(__file__))
 
-patchcmakelists = path.join(here, 'patch/CMakeLists.leveldb-mcpe.txt')
+patchcmakelists = path.join(here, 'patch/CMakeLists.txt')
 targetcmakelists = path.join(here, 'pybedrock/clib/leveldb-mcpe/CMakeLists.txt')
 
 shutil.copy(patchcmakelists,targetcmakelists)
