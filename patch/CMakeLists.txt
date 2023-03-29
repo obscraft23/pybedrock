@@ -41,7 +41,7 @@ list(APPEND SOURCES util/options.cc)
 list(APPEND SOURCES util/status.cc)
 list(APPEND SOURCES db/zlib_compressor.cc)
 list(APPEND SOURCES db/zstd_compressor.cc)
-list(APPEND SOURCES port/port_posix_sse.cc)
+#list(APPEND SOURCES port/port_posix_sse.cc)
 include_directories(. include)
 
 if (UNIX)
