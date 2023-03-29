@@ -56,11 +56,11 @@ libdir = sysconfig.get_path('include').replace("Include","libs")
 print("########################################################")
 print(platform.system())
 if libdir != None:
-    os.environ["LIBPATH"] = libdir
+    os.environ["LIBPATH"] = libdir+";C:\vcpkg\installed\x64-windows\lib"
     try:
-        os.environ["LIB"] += ";"+libdir
+        os.environ["LIB"] += ";"+libdir+";C:\vcpkg\installed\x64-windows\lib"
     except:
-        os.environ["LIB"] = libdir
+        os.environ["LIB"] = libdir+";C:\vcpkg\installed\x64-windows\lib"
     print(libdir)
     print(os.environ["LIB"])
     print(os.environ["LIBPATH"])

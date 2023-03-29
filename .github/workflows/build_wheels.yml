@@ -27,6 +27,7 @@ jobs:
         vcpkg integrate install
       env:
         VCPKG_LIBRARY_LINKAGE: dynamic
+        VCPKG_CRT_LINKAGE: dynamic
 
 
     #- name: Create directory
