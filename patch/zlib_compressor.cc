@@ -2,7 +2,7 @@
 
 #include "leveldb/zlib_compressor.h"
 
-#pragma comment(lib, "zlibstat.lib")
+#pragma comment(lib, "C:/vcpkg/installed/x64-windows/lib/zlib.lib" )
 #include <zlib.h>
 #include <algorithm>
 
