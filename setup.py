@@ -36,11 +36,11 @@ if platform.system() == 'Windows':
     print("########################################################")
     print(platform.system())
     if libdir != None:
-        os.environ["LIBPATH"] = libdir+";"+r"C:\vcpkg\installed\x64-windows\lib"
+        os.environ["LIBPATH"] = libdir+";"+r"C:\vcpkg\installed\x64-windows-static\lib"
         try:
-            os.environ["LIB"] += ";"+libdir+";"+r"C:\vcpkg\installed\x64-windows\lib"
+            os.environ["LIB"] += ";"+libdir+";"+r"C:\vcpkg\installed\x64-windows-windows-static\lib"
         except:
-            os.environ["LIB"] = libdir+";"+r"C:\vcpkg\installed\x64-windows\lib"
+            os.environ["LIB"] = libdir+";"+r"C:\vcpkg\installed\x64-windows-windows-static\lib"
         print(libdir)
         
         print(os.environ["LIB"])
@@ -58,7 +58,7 @@ if platform.system() == 'Windows':
 
         cmake_install_dir="pybedrock/cmodules",
         cmake_source_dir = "./pybedrock/clib",
-        cmake_args=['-DCMAKE_BUILD_TYPE=Release','-DVCPKG_TARGET_TRIPLET=x64-windows',r'-DCMAKE_TOOLCHAIN_FILE=C:\vcpkg\scripts\buildsystems\vcpkg.cmake'],
+        cmake_args=['-DCMAKE_BUILD_TYPE=Release','-DVCPKG_TARGET_TRIPLET=x64-windows-static',r'-DCMAKE_TOOLCHAIN_FILE=C:\vcpkg\scripts\buildsystems\vcpkg.cmake'],
 
         version='0.0.6',
 
