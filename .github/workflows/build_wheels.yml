@@ -53,6 +53,7 @@ jobs:
     - name: test mcberepair1
       working-directory: ${{ github.workspace }}/pybedrock/clib
       run: |
+        powershell -Command "(python -m sysconfig)"
         powershell -Command "(Copy-Item ../../patch/CMakeLists.txt ./leveldb-mcpe/CMakeLists.txt)"
         cmake -S . -B build -DCMAKE_BUILD_TYPE=Release -DVCPKG_TARGET_TRIPLET=x64-windows -DCMAKE_TOOLCHAIN_FILE=C:/vcpkg/scripts/buildsystems/vcpkg.cmake
         cmake --build build --config Release
