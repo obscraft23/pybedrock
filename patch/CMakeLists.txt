@@ -64,7 +64,7 @@ if(CMAKE_CXX_COMPILER_ID STREQUAL "MSVC")
 
   # Disable RTTI.
   string(REGEX REPLACE "/GR" "" CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS}")
-  set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} /GR /MD")
+  set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} /GR")
   set(CMAKE_POSITION_INDEPENDENT_CODE ON)
 else(CMAKE_CXX_COMPILER_ID STREQUAL "MSVC")
   # Enable strict prototype warnings for C code in clang and gcc.
