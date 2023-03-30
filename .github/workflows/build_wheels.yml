@@ -48,6 +48,8 @@ jobs:
         powershell -Command "(Get-Item C:\vcpkg\installed\x64-windows\include\*)"
         powershell -Command "(Get-Command python)"
         powershell -Command "(python -m sysconfig)"
+        powershell -Command "(C:\hostedtoolcache\windows\Python\3.9.13\*)"
+        powershell -Command "(C:\hostedtoolcache\windows\Python\3.9.13\x64\*)"
         powershell -Command "(C:\hostedtoolcache\windows\Python\3.9.13\x64\libs\*)"
         
       shell: cmd
