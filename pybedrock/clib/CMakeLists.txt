@@ -72,7 +72,7 @@ if(CMAKE_CXX_COMPILER_ID STREQUAL "MSVC")
 else()
   # Enable RTTI.
   string(REGEX REPLACE "-frtti" "" CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS}")
-  set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -frtti -fpic")
+  set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -frtti")
 endif()
 
 ################################################################################
@@ -129,7 +129,7 @@ if(CMAKE_CXX_COMPILER_ID STREQUAL "MSVC")
     $<$<OR:$<CXX_COMPILER_ID:Clang>,$<CXX_COMPILER_ID:AppleClang>,$<CXX_COMPILER_ID:GNU>>:-Wall -Wextra>
       $<$<CXX_COMPILER_ID:MSVC>:/W4>)
 else()
-  target_compile_options(leveldbhandler PUBLIC -fPIC 
+  target_compile_options(leveldbhandler PUBLIC -fPIC -Wno-error=unused-command-line-argument
   $<$<OR:$<CXX_COMPILER_ID:Clang>,$<CXX_COMPILER_ID:AppleClang>,$<CXX_COMPILER_ID:GNU>>:-Wall -Wextra>
     $<$<CXX_COMPILER_ID:MSVC>:/W4>)
 endif()
