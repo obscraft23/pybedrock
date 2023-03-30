@@ -22,9 +22,10 @@ targetcmakelists = path.join(here, 'pybedrock/clib/leveldb-mcpe/CMakeLists.txt')
 
 shutil.copy(patchcmakelists,targetcmakelists)
 
-patchcmakelists = path.join(here, 'patch/zlib_compressor.cc')
-targetcmakelists = path.join(here, 'pybedrock/clib/leveldb-mcpe/db/zlib_compressor.cc')
-shutil.copy(patchcmakelists,targetcmakelists)
+if platform.system() == 'Windows':
+    patchcmakelists = path.join(here, 'patch/zlib_compressor.cc')
+    targetcmakelists = path.join(here, 'pybedrock/clib/leveldb-mcpe/db/zlib_compressor.cc')
+    shutil.copy(patchcmakelists,targetcmakelists)
 
 """
 if platform.system() == 'windows':
@@ -51,36 +52,35 @@ if platform.system() == 'windows':
 with open(path.join(here, 'README.md'), encoding='utf-8') as f:
     long_description = f.read()
 
-import sysconfig
-libdir = sysconfig.get_path('include').replace("Include","libs")
-print("########################################################")
-print(platform.system())
-if libdir != None:
-    os.environ["LIBPATH"] = libdir
-    try:
-        os.environ["LIB"] += ";"+libdir
-    except:
-        os.environ["LIB"] = libdir
-    print(libdir)
-    
-    print(os.environ["LIB"])
-    print(os.environ["LIBPATH"])
-    #print(os.environ["ZLIB_INCLUDE_DIRS"])
-    #print(os.environ["ZLIB_LIBRARIES"])
-
-else:
-    print(here)
-    print("NO LIB!!!!!")
-print("########################################################")
-
 if platform.system() == 'Windows':
+    import sysconfig
+    libdir = sysconfig.get_path('include').replace("Include","libs")
+    print("########################################################")
+    print(platform.system())
+    if libdir != None:
+        os.environ["LIBPATH"] = libdir
+        try:
+            os.environ["LIB"] += ";"+libdir
+        except:
+            os.environ["LIB"] = libdir
+        print(libdir)
+        
+        print(os.environ["LIB"])
+        print(os.environ["LIBPATH"])
+        #print(os.environ["ZLIB_INCLUDE_DIRS"])
+        #print(os.environ["ZLIB_LIBRARIES"])
+
+    else:
+        print(here)
+        print("NO LIB!!!!!")
+    print("########################################################")
     setup(
         name='pybedrock',
         packages=['pybedrock'],
 
         cmake_install_dir="pybedrock/cmodules",
         cmake_source_dir = "./pybedrock/clib",
-        cmake_args=['-DCMAKE_BUILD_TYPE=Release','-DVCPKG_TARGET_TRIPLET=x64-windows','-DCMAKE_TOOLCHAIN_FILE=C:/vcpkg/scripts/buildsystems/vcpkg.cmake'],
+        cmake_args=['-DCMAKE_BUILD_TYPE=Release','-DVCPKG_TARGET_TRIPLET=x64-windows-static-md','-DCMAKE_TOOLCHAIN_FILE=C:/vcpkg/scripts/buildsystems/vcpkg.cmake'],
 
         version='0.0.6',
 
@@ -109,7 +109,6 @@ if platform.system() == 'Windows':
         ],
     )
 
-"""
 else:
     setup(
         name='pybedrock',
@@ -144,4 +143,3 @@ else:
             'Programming Language :: C++',
         ],
     )
-"""

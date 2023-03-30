@@ -23,7 +23,7 @@ jobs:
     
     - name: Vcpkg
       run: |
-        vcpkg install zlib:x64-windows
+        vcpkg install zlib:x64-windows-static-md
         vcpkg integrate install
       #env:
       #  VCPKG_LIBRARY_LINKAGE: dynamic
