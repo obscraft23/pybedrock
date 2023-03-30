@@ -101,7 +101,7 @@ else()
     include_directories(${Python_INCLUDE_DIRS})
 endif()
 
-add_library(leveldbhandler STATIC
+add_library(leveldbhandler SHARED
   leveldbhandler.cpp
   listkeys.cpp
   dumpkey.cpp
@@ -125,7 +125,7 @@ target_include_directories(leveldbhandler PUBLIC "${CMAKE_CURRENT_BINARY_DIR}")
 
 if(CMAKE_CXX_COMPILER_ID STREQUAL "MSVC")
   set(CMAKE_POSITION_INDEPENDENT_CODE ON)
-  target_compile_options(leveldbhandler PUBLIC
+  target_compile_options(leveldbhandler PUBLIC /MD
     $<$<OR:$<CXX_COMPILER_ID:Clang>,$<CXX_COMPILER_ID:AppleClang>,$<CXX_COMPILER_ID:GNU>>:-Wall -Wextra>
       $<$<CXX_COMPILER_ID:MSVC>:/W4>)
 else()
@@ -135,11 +135,8 @@ else()
 endif()
 
 install(TARGETS leveldbhandler RUNTIME DESTINATION ${CMAKE_INSTALL_LIBDIR})
-install(DIRECTORY C:/vcpkg/installed/x64-windows/bin/ TYPE LIB FILES_MATCHING PATTERN "*.dll")
 
 # copy any dlls installed by vcpkg on windows
-#if(CMAKE_CXX_COMPILER_ID STREQUAL "MSVC")
-#  install(FILES C:/vcpkg/installed/x64-windows/bin/zlib1.dll DESTINATION ${CMAKE_INSTALL_LIBDIR})
-#  install(DIRECTORY $<TARGET_FILE_DIR:mcberepair>/
-#    TYPE BIN FILES_MATCHING PATTERN "*.dll")
-#endif()
+if(CMAKE_CXX_COMPILER_ID STREQUAL "MSVC")
+  install(DIRECTORY C:/vcpkg/installed/x64-windows/bin/ TYPE LIB FILES_MATCHING PATTERN "*.dll")
+endif()
