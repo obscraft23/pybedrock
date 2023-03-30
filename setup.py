@@ -94,7 +94,7 @@ else:
 
         cmake_install_dir="pybedrock/cmodules",
         cmake_source_dir = "./pybedrock/clib",
-        
+        cmake_args=['-Wno-error=unused-command-line-argument'],
         version='0.0.6',
 
         license='MIT',

@@ -129,7 +129,7 @@ if(CMAKE_CXX_COMPILER_ID STREQUAL "MSVC")
     $<$<OR:$<CXX_COMPILER_ID:Clang>,$<CXX_COMPILER_ID:AppleClang>,$<CXX_COMPILER_ID:GNU>>:-Wall -Wextra>
       $<$<CXX_COMPILER_ID:MSVC>:/W4>)
 else()
-  target_compile_options(leveldbhandler PUBLIC -fPIC -Wno-error=unused-command-line-argument
+  target_compile_options(leveldbhandler PUBLIC -fPIC
   $<$<OR:$<CXX_COMPILER_ID:Clang>,$<CXX_COMPILER_ID:AppleClang>,$<CXX_COMPILER_ID:GNU>>:-Wall -Wextra>
     $<$<CXX_COMPILER_ID:MSVC>:/W4>)
 endif()
