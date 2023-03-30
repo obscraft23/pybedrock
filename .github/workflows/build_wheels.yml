@@ -39,15 +39,26 @@ jobs:
     #   run: powershell -Command "(Invoke-WebRequest -Uri https://git.io/JnHTY -OutFile install_zlib.bat)"; ./install_zlib.bat; del install_zlib.bat
     #   shell: cmd
 
-    - name: Test
+    - name: Test0
       run: |
         if NOT exist C:\vcpkg\installed\x64-windows\lib\zlib.lib exit 1
-        if NOT exist C:\vcpkg\installed\x64-windows\bin\zlib.dll exit 1
+      shell: cmd
+
+    - name: Test1
+      run: |
         if NOT exist C:\vcpkg\installed\x64-windows\include\zconf.h exit 1
+      shell: cmd
+
+    - name: Test2
+      run: |
         if NOT exist C:\vcpkg\installed\x64-windows\zlib.h exit 1
       shell: cmd
+      
+    - name: Test3
+      run: |
+        if NOT exist C:\vcpkg\installed\x64-windows\bin\zlib.dll exit 1
+      shell: cmd
     
-
     - name: Build wheels
       uses: pypa/cibuildwheel@v2.12.1
     
