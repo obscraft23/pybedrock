@@ -47,13 +47,13 @@ jobs:
         powershell -Command "(Copy-Item C:\vcpkg\installed\x64-windows\bin\*.dll C:\vcpkg\installed\x64-windows\lib\)"
         powershell -Command "(Get-Item C:\vcpkg\installed\x64-windows\include\*)"
         powershell -Command "(Get-Command python)"
+        powershell -Command "(python -m sysconfig)"
         powershell -Command "(C:\Python311\libs\*)"
       shell: cmd
     
     - name: test mcberepair1
       working-directory: ${{ github.workspace }}/pybedrock/clib
       run: |
-        powershell -Command "(python -m sysconfig)"
         powershell -Command "(Copy-Item ../../patch/CMakeLists.txt ./leveldb-mcpe/CMakeLists.txt)"
         cmake -S . -B build -DCMAKE_BUILD_TYPE=Release -DVCPKG_TARGET_TRIPLET=x64-windows -DCMAKE_TOOLCHAIN_FILE=C:/vcpkg/scripts/buildsystems/vcpkg.cmake
         cmake --build build --config Release
