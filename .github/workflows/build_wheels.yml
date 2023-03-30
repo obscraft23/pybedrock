@@ -57,6 +57,10 @@ jobs:
     - name: test mcberepair1
       working-directory: ${{ github.workspace }}/pybedrock/clib
       run: |
+        powershell -Command "(Set-Item Env:LIB 'C:\hostedtoolcache\windows\Python\3.9.13\x64\libs')"
+        powershell -Command "(Set-Item Env:LIBPATH 'C:\hostedtoolcache\windows\Python\3.9.13\x64\libs')"
+        powershell -Command "(Env:LIBPATH)"
+        powershell -Command "(Env:LIB)"
         powershell -Command "(Copy-Item ../../patch/CMakeLists.txt ./leveldb-mcpe/CMakeLists.txt)"
         cmake -S . -B build -DCMAKE_BUILD_TYPE=Release -DVCPKG_TARGET_TRIPLET=x64-windows -DCMAKE_TOOLCHAIN_FILE=C:/vcpkg/scripts/buildsystems/vcpkg.cmake
         cmake --build build --config Release
