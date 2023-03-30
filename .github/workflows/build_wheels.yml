@@ -24,7 +24,7 @@ jobs:
     
     - name: Vcpkg
       run: |
-        vcpkg install zlib:x64-windows-static
+        vcpkg install zlib:x64-windows
         vcpkg integrate install
       #env:
       #  VCPKG_LIBRARY_LINKAGE: dynamic
@@ -42,9 +42,10 @@ jobs:
 
     - name: Test4
       run: |
-        powershell -Command "(Get-Item C:\vcpkg\installed\x64-windows-static\bin\*)"
-        powershell -Command "(Get-Item C:\vcpkg\installed\x64-windows-static\lib\*)"
-        powershell -Command "(Get-Item C:\vcpkg\installed\x64-windows-static\include\*)"
+        powershell -Command "(Get-Item C:\vcpkg\installed\x64-windows\bin\*)"
+        powershell -Command "(Get-Item C:\vcpkg\installed\x64-windows\lib\*)"
+        powershell -Command "(Copy-Item C:\vcpkg\installed\x64-windows\bin\*.dll C:\vcpkg\installed\x64-windows\lib\)"
+        powershell -Command "(Get-Item C:\vcpkg\installed\x64-windows\include\*)"
       shell: cmd
 
     - name: Build wheels
