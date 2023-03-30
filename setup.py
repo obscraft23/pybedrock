@@ -22,10 +22,10 @@ targetcmakelists = path.join(here, 'pybedrock/clib/leveldb-mcpe/CMakeLists.txt')
 
 shutil.copy(patchcmakelists,targetcmakelists)
 
-#if platform.system() == 'Windows':
-    #patchcmakelists = path.join(here, 'patch/zlib_compressor.cc')
-    #targetcmakelists = path.join(here, 'pybedrock/clib/leveldb-mcpe/db/zlib_compressor.cc')
-    #shutil.copy(patchcmakelists,targetcmakelists)
+if platform.system() == 'Windows':
+    patchcmakelists = path.join(here, 'patch/zlib_compressor.cc')
+    targetcmakelists = path.join(here, 'pybedrock/clib/leveldb-mcpe/db/zlib_compressor.cc')
+    shutil.copy(patchcmakelists,targetcmakelists)
 
 with open(path.join(here, 'README.md'), encoding='utf-8') as f:
     long_description = f.read()

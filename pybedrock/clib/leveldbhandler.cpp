@@ -10,8 +10,19 @@
 #include "db.hpp"
 #include "mcbekey.hpp"
 
-PyObject* py_listkeys(PyObject* self, PyObject* args);
-PyObject* py_loadbinary(PyObject* self, PyObject* args);
+#ifdef _WIN64
+__declspec(dllexport) extern "C" PyObject* py_listkeys(PyObject* self, PyObject* args);
+__declspec(dllexport) extern "C" PyObject* py_loadbinary(PyObject* self, PyObject* args);
+__declspec(dllexport) extern "C" PyObject* py_writebinary(PyObject* self, PyObject* args);
+__declspec(dllexport) extern "C" PyObject* py_rmkey(PyObject* self, PyObject* args);
+__declspec(dllexport) extern "C" PyObject* py_readNBT(PyObject* self, PyObject* args);
+__declspec(dllexport) extern "C" PyObject* py_readNBT_big(PyObject* self, PyObject* args);
+__declspec(dllexport) extern "C" PyObject* py_writeNBT(PyObject* self, PyObject* args);
+__declspec(dllexport) extern "C" PyObject* py_readSubchunk(PyObject* self, PyObject* args);
+__declspec(dllexport) extern "C" PyObject* py_writeSubchunk(PyObject* self, PyObject* args);
+#else
+py_listkeys(PyObject* self, PyObject* args);
+py_loadbinary(PyObject* self, PyObject* args);
 PyObject* py_writebinary(PyObject* self, PyObject* args);
 PyObject* py_rmkey(PyObject* self, PyObject* args);
 PyObject* py_readNBT(PyObject* self, PyObject* args);
@@ -19,7 +30,7 @@ PyObject* py_readNBT_big(PyObject* self, PyObject* args);
 PyObject* py_writeNBT(PyObject* self, PyObject* args);
 PyObject* py_readSubchunk(PyObject* self, PyObject* args);
 PyObject* py_writeSubchunk(PyObject* self, PyObject* args);
-
+#endif
 // myModule definition(python's name)
 static PyMethodDef leveldbMethods[] = {
     { "listkeys", py_listkeys, METH_VARARGS, "list keys of leveldb data." },
@@ -31,7 +42,7 @@ static PyMethodDef leveldbMethods[] = {
     { "writeNBT", py_writeNBT, METH_VARARGS, "write uncompressed nbt data (little-endian)." },
     { "readSubchunk", py_readSubchunk, METH_VARARGS, "read subchunk data." },
     { "writeSubchunk", py_writeSubchunk, METH_VARARGS, "write subchunk data." },
-    { NULL },
+    { nullptr, nullptr, 0, nullptr },
 };
  
 // myModule definition struct

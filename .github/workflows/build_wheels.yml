@@ -31,58 +31,6 @@ jobs:
       with:
         path: ./wheelhouse/*.whl
   
-  win-build-2:
-    runs-on: windows-latest
-
-    steps:
-    - uses: actions/checkout@v3
-      with:
-        submodules: recursive
-
-    - uses: ilammy/msvc-dev-cmd@v1
-    - name: Add msbuild to PATH
-      uses: microsoft/setup-msbuild@v1.0.2
-    
-    - name: Vcpkg
-      run: |
-        vcpkg install zlib:x64-windows
-        vcpkg integrate install
-
-    - name: Build wheels
-      uses: pypa/cibuildwheel@v2.12.1
-      env:
-        CIBW_ARCHS_WINDOWS: ARM64
-    
-    - uses: actions/upload-artifact@v3
-      with:
-        path: ./wheelhouse/*.whl
-  
-  win-build-3:
-    runs-on: windows-latest
-
-    steps:
-    - uses: actions/checkout@v3
-      with:
-        submodules: recursive
-
-    - uses: ilammy/msvc-dev-cmd@v1
-    - name: Add msbuild to PATH
-      uses: microsoft/setup-msbuild@v1.0.2
-    
-    - name: Vcpkg
-      run: |
-        vcpkg install zlib:x64-windows
-        vcpkg integrate install
-
-    - name: Build wheels
-      uses: pypa/cibuildwheel@v2.12.1
-      env:
-        CIBW_ARCHS_WINDOWS: x86
-    
-    - uses: actions/upload-artifact@v3
-      with:
-        path: ./wheelhouse/*.whl
-  
   mac-build-1:
     runs-on: macos-latest
     steps:
