@@ -65,7 +65,8 @@ jobs:
         powershell -Command "(Get-Item C:\vcpkg\installed\x64-windows\lib\*)"
         powershell -Command "(Get-Item C:\vcpkg\installed\x64-windows\include\*)"
       shell: cmd
-    
+
+    - uses: ilammy/msvc-dev-cmd@v1
     - name: Build wheels
       uses: pypa/cibuildwheel@v2.12.1
     
