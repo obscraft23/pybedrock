@@ -21,8 +21,8 @@ __declspec(dllexport) extern "C" PyObject* py_writeNBT(PyObject* self, PyObject*
 __declspec(dllexport) extern "C" PyObject* py_readSubchunk(PyObject* self, PyObject* args);
 __declspec(dllexport) extern "C" PyObject* py_writeSubchunk(PyObject* self, PyObject* args);
 #else
-py_listkeys(PyObject* self, PyObject* args);
-py_loadbinary(PyObject* self, PyObject* args);
+PyObject* py_listkeys(PyObject* self, PyObject* args);
+PyObject* py_loadbinary(PyObject* self, PyObject* args);
 PyObject* py_writebinary(PyObject* self, PyObject* args);
 PyObject* py_rmkey(PyObject* self, PyObject* args);
 PyObject* py_readNBT(PyObject* self, PyObject* args);
