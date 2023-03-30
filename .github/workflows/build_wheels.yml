@@ -17,10 +17,10 @@ jobs:
     - name: Add msbuild to PATH
       uses: microsoft/setup-msbuild@v1.0.2
     
-    - name: Install Server-Media-Foundation
-      shell: powershell
-      run: |
-        Install-WindowsFeature Server-Media-Foundation
+    #- name: Install Server-Media-Foundation
+    #  shell: powershell
+    #  run: |
+    #    Install-WindowsFeature Server-Media-Foundation
     
     - name: Vcpkg
       run: |
@@ -53,13 +53,14 @@ jobs:
       run: |
         powershell -Command "(Get-Location)"
         powershell -Command "(git clone --recurse-submodules https://github.com/reedacartwright/mcberepair.git)"
-        powershell -Command "(cd 'mcberepair')"
+        powershell -Command "(Set-Location -Path 'D:\a\pybedrock\pybedrock\mcberepair')"
+        powershell -Command "(Get-Location)"
         powershell -Command "(Get-Item .\*)"
         powershell -Command "(cmake -S . -B build -DCMAKE_BUILD_TYPE=Release -DVCPKG_TARGET_TRIPLET=x64-windows -DCMAKE_TOOLCHAIN_FILE=C:/path/to/vcpkg/scripts/buildsystems/vcpkg.cmake)"
         powershell -Command "(cmake --build build --config Release --parallel)"
         powershell -Command "(Get-Item .\build\*)"
         powershell -Command "(Get-Item .\build\Release\*)"
-        powershell -Command "(cd build\Release\)"
+        powershell -Command "(Set-Location -Path '.\build\Release\')"
         powershell -Command "(.\mcberepair.exe help)"
       
 
