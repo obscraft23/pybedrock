@@ -51,7 +51,7 @@ jobs:
 
     - name: Test2
       run: |
-        if NOT exist C:\vcpkg\installed\x64-windows\lib\zlib.h exit 1
+        if NOT exist C:\vcpkg\installed\x64-windows\include\zlib.h exit 1
       shell: cmd
 
     - name: Test3
