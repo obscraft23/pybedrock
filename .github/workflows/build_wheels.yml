@@ -39,32 +39,12 @@ jobs:
     #   run: powershell -Command "(Invoke-WebRequest -Uri https://git.io/JnHTY -OutFile install_zlib.bat)"; ./install_zlib.bat; del install_zlib.bat
     #   shell: cmd
 
-    - name: Test0
-      run: |
-        if NOT exist C:\vcpkg\installed\x64-windows\lib\zlib.lib exit 1
-      shell: cmd
-
-    - name: Test1
-      run: |
-        if NOT exist C:\vcpkg\installed\x64-windows\include\zconf.h exit 1
-      shell: cmd
-
-    - name: Test2
-      run: |
-        if NOT exist C:\vcpkg\installed\x64-windows\include\zlib.h exit 1
-      shell: cmd
-
-    - name: Test3
-      run: |
-        if NOT exist C:\vcpkg\installed\x64-windows\bin\zlib1.dll exit 1
-      shell: cmd
-
-    - name: Test4
-      run: |
-        powershell -Command "(Get-Item C:\vcpkg\installed\x64-windows\bin\*)"
-        powershell -Command "(Get-Item C:\vcpkg\installed\x64-windows\lib\*)"
-        powershell -Command "(Get-Item C:\vcpkg\installed\x64-windows\include\*)"
-      shell: cmd
+    #- name: Test4
+    #  run: |
+    #    powershell -Command "(Get-Item C:\vcpkg\installed\x64-windows\bin\*)"
+    #    powershell -Command "(Get-Item C:\vcpkg\installed\x64-windows\lib\*)"
+    #    powershell -Command "(Get-Item C:\vcpkg\installed\x64-windows\include\*)"
+    #  shell: cmd
 
     - uses: ilammy/msvc-dev-cmd@v1
     - name: Build wheels
