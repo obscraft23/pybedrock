@@ -67,7 +67,7 @@ add_subdirectory(leveldb-mcpe)
 if(CMAKE_CXX_COMPILER_ID STREQUAL "MSVC")
   # Enable RTTI.
   string(REGEX REPLACE "/GR" "" CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS}")
-  set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} /GR /MT")
+  set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} /GR /MD")
   set(CMAKE_POSITION_INDEPENDENT_CODE ON)
 else()
   # Enable RTTI.
@@ -125,7 +125,7 @@ target_include_directories(leveldbhandler PUBLIC "${CMAKE_CURRENT_BINARY_DIR}")
 
 if(CMAKE_CXX_COMPILER_ID STREQUAL "MSVC")
   set(CMAKE_POSITION_INDEPENDENT_CODE ON)
-  target_compile_options(leveldbhandler PUBLIC /MT
+  target_compile_options(leveldbhandler PUBLIC /MD
     $<$<OR:$<CXX_COMPILER_ID:Clang>,$<CXX_COMPILER_ID:AppleClang>,$<CXX_COMPILER_ID:GNU>>:-Wall -Wextra>
       $<$<CXX_COMPILER_ID:MSVC>:/W4>)
 else()
