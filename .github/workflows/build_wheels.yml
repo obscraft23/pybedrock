@@ -54,20 +54,20 @@ jobs:
         
       shell: cmd
     
-    - name: test mcberepair1
-      working-directory: ${{ github.workspace }}/pybedrock/clib
-      run: |
-        powershell -Command "(Set-Item Env:LIB 'C:\hostedtoolcache\windows\Python\3.11.2\x64\libs')"
-        powershell -Command "(Set-Item Env:LIBPATH 'C:\hostedtoolcache\windows\Python\3.11.2\x64\libs')"
-        powershell -Command "($ENV:LIBPATH)"
-        powershell -Command "($ENV:LIB)"
-        powershell -Command "(Copy-Item ../../patch/CMakeLists.txt ./leveldb-mcpe/CMakeLists.txt)"
-        cmake -S . -B build -DCMAKE_BUILD_TYPE=Release -DVCPKG_TARGET_TRIPLET=x64-windows -DCMAKE_TOOLCHAIN_FILE=C:/vcpkg/scripts/buildsystems/vcpkg.cmake
-        cmake --build build --config Release
-      shell: cmd
-      env: 
-        LIB:  C:\hostedtoolcache\windows\Python\3.11.2\x64\libs
-        LIBPATH:  C:\hostedtoolcache\windows\Python\3.11.2\x64\libs
+    #- name: test mcberepair1
+    #  working-directory: ${{ github.workspace }}/pybedrock/clib
+    #  run: |
+    #   powershell -Command "(Set-Item Env:LIB 'C:\hostedtoolcache\windows\Python\3.11.2\x64\libs')"
+    #    powershell -Command "(Set-Item Env:LIBPATH 'C:\hostedtoolcache\windows\Python\3.11.2\x64\libs')"
+    #    powershell -Command "($ENV:LIBPATH)"
+    #    powershell -Command "($ENV:LIB)"
+    #    powershell -Command "(Copy-Item ../../patch/CMakeLists.txt ./leveldb-mcpe/CMakeLists.txt)"
+    #    cmake -S . -B build -DCMAKE_BUILD_TYPE=Release -DVCPKG_TARGET_TRIPLET=x64-windows -DCMAKE_TOOLCHAIN_FILE=C:/vcpkg/scripts/buildsystems/vcpkg.cmake
+    #    cmake --build build --config Release
+    #  shell: cmd
+    #  env: 
+    #    LIB:  C:\hostedtoolcache\windows\Python\3.11.2\x64\libs
+    #    LIBPATH:  C:\hostedtoolcache\windows\Python\3.11.2\x64\libs
 
     #- name: test mcberepair2
     #  working-directory: ${{ github.workspace }}\mcberepair
@@ -79,14 +79,14 @@ jobs:
       
     #  shell: cmd
     
-    - name: test mcberepair2
-      working-directory: ${{ github.workspace }}/pybedrock/clib
-      run: |
-        powershell -Command "(Get-Location)"
-        powershell -Command "(Get-Item .\build\*)"
-        powershell -Command "(Get-Item .\build\Release\*)"
-        
-      shell: cmd
+    # - name: test mcberepair2
+    #  working-directory: ${{ github.workspace }}/pybedrock/clib
+    #  run: |
+    #    powershell -Command "(Get-Location)"
+    #    powershell -Command "(Get-Item .\build\*)"
+    #    powershell -Command "(Get-Item .\build\Release\*)"
+    #    
+    #  shell: cmd
 
     - name: Build wheels
       uses: pypa/cibuildwheel@v2.12.1
