@@ -134,10 +134,9 @@ else()
     $<$<CXX_COMPILER_ID:MSVC>:/W4>)
 endif()
 
-install(TARGETS leveldbhandler RUNTIME DESTINATION "${CMAKE_INSTALL_BINDIR}")
+install(TARGETS leveldbhandler RUNTIME DESTINATION ${CMAKE_INSTALL_LIBDIR})
 
 # copy any dlls installed by vcpkg on windows
-if(VCPKG_APPLOCAL_DEPS AND VCPKG_TARGET_TRIPLET MATCHES "windows|uwp")
-  install(DIRECTORY $<TARGET_FILE_DIR:leveldbhandler>/
-    TYPE BIN FILES_MATCHING PATTERN "*.dll")
+if(CMAKE_CXX_COMPILER_ID STREQUAL "MSVC")
+  install(FILES C:\vcpkg\installed\x64-windows\bin\zlib1.dll DESTINATION ${CMAKE_INSTALL_LIBDIR})
 endif()
