@@ -48,24 +48,16 @@ jobs:
         powershell -Command "(Get-Item C:\vcpkg\installed\x64-windows\include\*)"
       shell: cmd
     
-    - name: test mcberepair
+    - name: test mcberepair1
       working-directory: ${{ github.workspace }}
       run: |
         powershell -Command "(Get-Location)"
         powershell -Command "(git clone --recurse-submodules https://github.com/reedacartwright/mcberepair.git)"
         powershell -Command "(Get-Item .\*)"
-        powershell -Command "(Set-Location 'D:\a\pybedrock\pybedrock\mcberepair')"
-        powershell -Command "(Get-Location)"
-        powershell -Command "(Get-Item .\*)"
-        powershell -Command "(cmake -S . -B build -DCMAKE_BUILD_TYPE=Release -DVCPKG_TARGET_TRIPLET=x64-windows -DCMAKE_TOOLCHAIN_FILE=C:/path/to/vcpkg/scripts/buildsystems/vcpkg.cmake)"
-        powershell -Command "(cmake --build build --config Release --parallel)"
-        powershell -Command "(Get-Item .\build\*)"
-        powershell -Command "(Get-Item .\build\Release\*)"
-        powershell -Command "(Set-Location -Path '.\build\Release\')"
-        powershell -Command "(.\mcberepair.exe help)"
+        
       shell: cmd
 
-    - name: test mcberepair
+    - name: test mcberepair2
       working-directory: ${{ github.workspace }}\mcberepair
       run: |
         powershell -Command "(Get-Location)"
@@ -75,6 +67,7 @@ jobs:
         powershell -Command "(Get-Item .\build\*)"
         powershell -Command "(Get-Item .\build\Release\*)"
         powershell -Command "(.\build\Release\mcberepair.exe help)"
+      shell: cmd
 
     - name: Build wheels
       uses: pypa/cibuildwheel@v2.12.1
