@@ -1,10 +1,11 @@
 #ifndef NO_ZLIB
-#define ZLIB_WINAPI
+//#define ZLIB_WINAPI
 #include "leveldb/zlib_compressor.h"
 
 //#pragma comment(lib, "C:/vcpkg/installed/x64-windows/lib/zlib.lib" )
-//#pragma comment(lib,"C:/vcpkg/installed/x64-windows/lib/zlib.lib")
+#pragma comment(lib,"C:/vcpkg/installed/x64-windows/lib/zlib.lib")
 //#pragma comment(lib,"C:/vcpkg/installed/x64-windows/lib/zlibd.lib")
+
 #include <zlib.h>
 #include <algorithm>
 
