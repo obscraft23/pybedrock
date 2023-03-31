@@ -41,7 +41,6 @@ jobs:
 
       - name: install cmake
         run: |
-          brew install g++
           brew install gcc
           ls -l /usr/local/bin | grep g++
           ls -l /usr/local/bin | grep gcc
