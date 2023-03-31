@@ -60,7 +60,7 @@ PyObject __declspec(dllexport) *PyInit_leveldbhandler(void)
     return PyModule_Create(&leveldModule);
 };
 #else
-PyMODINIT_FUNC *PyInit_leveldbhandler(void)
+PyMODINIT_FUNC PyInit_leveldbhandler(void)
 {
     return PyModule_Create(&leveldModule);
 };
