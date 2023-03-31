@@ -6,8 +6,6 @@
 #include <memory>
 #include <vector>
 
-#include "stdafx.h"
-
 #include "db.hpp"
 #include "mcbekey.hpp"
 
@@ -56,6 +54,7 @@ static struct PyModuleDef leveldModule = {
 };
  
 // Initializes myModule
+__attribute__((visibility("default")))
 PyMODINIT_FUNC PyInit_leveldbhandler(void)
 {
     return PyModule_Create(&leveldModule);
