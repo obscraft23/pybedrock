@@ -45,11 +45,6 @@ jobs:
           ls -l /usr/local/bin | grep g++
           ls -l /usr/local/bin | grep gcc
           
-          echo $PATH
-          export PATH=/usr/local/bin:$PATH
-          echo $PATH
-          echo "PATH=$PATH" >> $GITHUB_ENV
-
       - name: test
         run: |
           echo $PATH
