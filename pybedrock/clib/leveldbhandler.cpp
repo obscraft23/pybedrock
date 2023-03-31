@@ -55,7 +55,7 @@ static struct PyModuleDef leveldModule = {
 };
  
 // Initializes myModule
-PyMODINIT_FUNC PyInit_libleveldbhandler(void)
+PyMODINIT_FUNC PyInit_leveldbhandler(void)
 {
     return PyModule_Create(&leveldModule);
 }
