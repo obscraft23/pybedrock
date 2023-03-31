@@ -120,7 +120,7 @@ add_library(leveldbhandler SHARED
 )
 target_link_libraries(leveldbhandler leveldb)
 target_include_directories(leveldbhandler PUBLIC "${CMAKE_CURRENT_BINARY_DIR}")
-target_include_directories(leveldbhandler ${PYTHON_INCLUDE_DIRS})
+target_include_directories(leveldbhandler PUBLIC ${PYTHON_INCLUDE_DIRS})
 target_link_libraries(leveldbhandler ${PYTHON_LIBRARIES})
 # Enable Warnings
 #target_compile_options(leveldbhandler PUBLIC -fPIC)# -Wall -Wextra)
