@@ -75,6 +75,7 @@ else()
   set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -frtti -fpic -Wl -no_weak_imports")
   set(CMAKE_C_COMPILER "gcc")
   set(CMAKE_CXX_COMPILER "g++")
+  add_compile_options("-Wl -no_weak_imports")
 endif()
 
 ################################################################################
