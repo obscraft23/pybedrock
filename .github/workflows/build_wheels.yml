@@ -41,7 +41,13 @@ jobs:
 
       - name: install cmake
         run: |
-          brew install cmake
+          brew install g++
+          brew install gcc
+          ls -l /usr/local/bin | grep g++
+          ls -l /usr/local/bin | grep gcc
+          echo $PATH
+          export PATH=/usr/local/bin:$PATH
+          echo $PATH
 
       - name: Build wheels
         uses: pypa/cibuildwheel@v2.12.1
