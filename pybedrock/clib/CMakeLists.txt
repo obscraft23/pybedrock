@@ -107,7 +107,7 @@ else()
     include_directories(${Python_INCLUDE_DIRS})
 endif()
 
-add_library(leveldbhandler SHARED
+add_library(leveldbhandler STATIC
   leveldbhandler.cpp
   listkeys.cpp
   dumpkey.cpp
@@ -126,7 +126,6 @@ target_link_libraries(leveldbhandler leveldb)
 target_include_directories(leveldbhandler PUBLIC "${CMAKE_CURRENT_BINARY_DIR}")
 target_include_directories(leveldbhandler PUBLIC ${PYTHON_INCLUDE_DIRS})
 target_link_libraries(leveldbhandler ${PYTHON_LIBRARIES})
-target_link_libraries(leveldbhandler /Library/Frameworks/Python.framework/Versions/3.9/lib/python3.9)
 # Enable Warnings
 #target_compile_options(leveldbhandler PUBLIC -fPIC)# -Wall -Wextra)
 #SET(CMAKE_C_ARCHIVE_FINISH   "<CMAKE_RANLIB> -no_warning_for_no_symbols -c <TARGET>")
