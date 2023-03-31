@@ -107,7 +107,7 @@ else()
     include_directories(${Python_INCLUDE_DIRS})
 endif()
 
-add_library(leveldbhandler STATIC
+add_library(leveldbhandler SHARED
   leveldbhandler.cpp
   listkeys.cpp
   dumpkey.cpp
