@@ -39,6 +39,10 @@ jobs:
         with:
           submodules: recursive
 
+      - name: install cmake
+        run: |
+          brew install cmake
+
       - name: Build wheels
         uses: pypa/cibuildwheel@v2.12.1
 
