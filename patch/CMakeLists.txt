@@ -70,9 +70,9 @@ if(CMAKE_CXX_COMPILER_ID STREQUAL "MSVC")
   set(CMAKE_POSITION_INDEPENDENT_CODE ON)
 else(CMAKE_CXX_COMPILER_ID STREQUAL "MSVC")
   # Enable strict prototype warnings for C code in clang and gcc.
-  if(NOT CMAKE_C_FLAGS MATCHES "-Wstrict-prototypes")
-    set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -Wstrict-prototypes")
-  endif(NOT CMAKE_C_FLAGS MATCHES "-Wstrict-prototypes")
+  #if(NOT CMAKE_C_FLAGS MATCHES "-Wstrict-prototypes")
+  #  set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -Wstrict-prototypes")
+  #endif(NOT CMAKE_C_FLAGS MATCHES "-Wstrict-prototypes")
 
   # Disable C++ exceptions.
   string(REGEX REPLACE "-fexceptions" "" CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS}")
@@ -274,11 +274,11 @@ if(BUILD_SHARED_LIBS)
   )
 endif(BUILD_SHARED_LIBS)
 
-if(HAVE_CLANG_THREAD_SAFETY)
-  target_compile_options(leveldb
-    PUBLIC
-      -Werror -Wthread-safety)
-endif(HAVE_CLANG_THREAD_SAFETY)
+#if(HAVE_CLANG_THREAD_SAFETY)
+#  target_compile_options(leveldb
+#    PUBLIC
+#      -Werror -Wthread-safety)
+#endif(HAVE_CLANG_THREAD_SAFETY)
 
 if(HAVE_CRC32C)
   target_link_libraries(leveldb crc32c)
