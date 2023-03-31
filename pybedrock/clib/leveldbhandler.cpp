@@ -6,6 +6,7 @@
 #include <memory>
 #include <vector>
 
+#include "stdafx.h"
 
 #include "db.hpp"
 #include "mcbekey.hpp"
