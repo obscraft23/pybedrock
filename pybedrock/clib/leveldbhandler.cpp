@@ -54,8 +54,7 @@ static struct PyModuleDef leveldModule = {
 };
  
 // Initializes myModule
-__attribute__((visibility("default")))
-PyMODINIT_FUNC PyInit_leveldbhandler(void)
+__attribute__((visibility("default"))) PyMODINIT_FUNC PyInit_leveldbhandler(void)
 {
     return PyModule_Create(&leveldModule);
 }
