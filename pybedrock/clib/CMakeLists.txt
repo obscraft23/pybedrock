@@ -72,7 +72,7 @@ if(CMAKE_CXX_COMPILER_ID STREQUAL "MSVC")
 else()
   # Enable RTTI.
   string(REGEX REPLACE "-frtti" "" CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS}")
-  set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -frtti")
+  set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -frtti -fPIC -Wno-error=unused-command-line-argument")
 endif()
 
 ################################################################################
