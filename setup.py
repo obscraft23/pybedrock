@@ -90,8 +90,9 @@ if platform.system() == 'Windows':
 else:
     import sysconfig
     libdir = sysconfig.get_path('include').replace("Include","libs")
-    os.system("python -m sysconfig")
-    os.system("ls "+sysconfig.get_path('include').replace("Include",""))
+    print("#######")
+    print(os.path.abspath(sysconfig.get_path('include')))
+    print("#######")
     setup(
         name='pybedrock',
         packages=['pybedrock'],
