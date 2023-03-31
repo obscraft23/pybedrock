@@ -7,7 +7,7 @@
 #include <vector>
 
 #ifdef _WIN64
-#define DLLEXPORT extern "C" __declspec(dllexport)
+#define DLLEXPORT extern "C"  __attribute__ ((visibility ("default")))
 #endif
 
 #include "db.hpp"
