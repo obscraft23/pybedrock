@@ -10,15 +10,15 @@
 #include "mcbekey.hpp"
 
 #ifdef _WIN64
-PyObject _declspec(dllexport) *py_listkeys(PyObject* self, PyObject* args);
-PyObject _declspec(dllexport) *py_loadbinary(PyObject* self, PyObject* args);
-PyObject _declspec(dllexport) *py_writebinary(PyObject* self, PyObject* args);
-PyObject _declspec(dllexport) *py_rmkey(PyObject* self, PyObject* args);
-PyObject _declspec(dllexport) *py_readNBT(PyObject* self, PyObject* args);
-PyObject _declspec(dllexport) *py_readNBT_big(PyObject* self, PyObject* args);
-PyObject _declspec(dllexport) *py_writeNBT(PyObject* self, PyObject* args);
-PyObject _declspec(dllexport) *py_readSubchunk(PyObject* self, PyObject* args);
-PyObject _declspec(dllexport) *py_writeSubchunk(PyObject* self, PyObject* args);
+PyObject _declspec(dllexport) extern "C" *py_listkeys(PyObject* self, PyObject* args);
+PyObject _declspec(dllexport) extern "C" *py_loadbinary(PyObject* self, PyObject* args);
+PyObject _declspec(dllexport) extern "C" *py_writebinary(PyObject* self, PyObject* args);
+PyObject _declspec(dllexport) extern "C" *py_rmkey(PyObject* self, PyObject* args);
+PyObject _declspec(dllexport) extern "C" *py_readNBT(PyObject* self, PyObject* args);
+PyObject _declspec(dllexport) extern "C" *py_readNBT_big(PyObject* self, PyObject* args);
+PyObject _declspec(dllexport) extern "C" *py_writeNBT(PyObject* self, PyObject* args);
+PyObject _declspec(dllexport) extern "C" *py_readSubchunk(PyObject* self, PyObject* args);
+PyObject _declspec(dllexport) extern "C" *py_writeSubchunk(PyObject* self, PyObject* args);
 #else
 PyObject* py_listkeys(PyObject* self, PyObject* args);
 PyObject* py_loadbinary(PyObject* self, PyObject* args);
