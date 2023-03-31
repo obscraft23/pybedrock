@@ -56,6 +56,9 @@ jobs:
           echo $PATH
           which gcc
           which g++
+          which ranlib
+          which ar
+          brew uninstall binutils
 
       - name: Build wheels
         uses: pypa/cibuildwheel@v2.12.1
