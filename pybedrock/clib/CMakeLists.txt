@@ -78,7 +78,7 @@ else()
   
   set (CMAKE_SHARED_LINKER_FLAGS "-Wl,-no_weak_imports")
   link_libraries("-Wl,-no_weak_imports")
-  add_compile_options("-Werror=partial-availability")
+  add_compile_options("-mmacosx-version-min=10.12 -Werror=partial-availability")
 endif()
 
 ################################################################################
