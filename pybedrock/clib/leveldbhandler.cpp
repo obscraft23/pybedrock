@@ -61,7 +61,7 @@ PyMODINIT_FUNC __declspec(dllexport) PyInit_leveldbhandler(void)
     return PyModule_Create(&leveldModule);
 };
 #else
-Py_EXPORTED_SYMBOL __declspec(dllexport) extern "C" PyObject* PyInit_leveldbhandler(void)
+PyObject __declspec(dllexport) *PyInit_leveldbhandler(void)
 {
     return PyModule_Create(&leveldModule);
 };
