@@ -120,8 +120,8 @@ add_library(leveldbhandler SHARED
 )
 target_link_libraries(leveldbhandler leveldb)
 target_include_directories(leveldbhandler PUBLIC "${CMAKE_CURRENT_BINARY_DIR}")
-target_include_directories(leveldbhandler PUBLIC ${PYTHON_INCLUDE_DIRS})
-target_link_libraries(leveldbhandler PUBLIC ${PYTHON_LIBRARIES})
+target_include_directories(leveldbhandler ${PYTHON_INCLUDE_DIRS})
+target_link_libraries(leveldbhandler ${PYTHON_LIBRARIES})
 # Enable Warnings
 #target_compile_options(leveldbhandler PUBLIC -fPIC)# -Wall -Wextra)
 #SET(CMAKE_C_ARCHIVE_FINISH   "<CMAKE_RANLIB> -no_warning_for_no_symbols -c <TARGET>")
