@@ -44,6 +44,12 @@ jobs:
           brew install gcc
           ls -l /usr/local/bin | grep g++
           ls -l /usr/local/bin | grep gcc
+          ln -s /usr/local/bin/g++-11 /usr/local/bin/g++
+          ln -s /usr/local/bin/gcc-11 /usr/local/bin/gcc
+          echo $PATH
+          export PATH=/usr/local/bin:$PATH
+          echo $PATH
+          echo "PATH=$PATH" >> $GITHUB_ENV
           
       - name: test
         run: |
@@ -52,6 +58,7 @@ jobs:
           which g++
           which ranlib
           which ar
+          which cmake
 
       - name: Build wheels
         uses: pypa/cibuildwheel@v2.12.1
