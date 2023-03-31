@@ -8,7 +8,7 @@
 
 #ifdef _WIN64
 #define DLLEXPORT extern "C" __declspec(dllexport)
-#else
+#endif
 
 #include "db.hpp"
 #include "mcbekey.hpp"
