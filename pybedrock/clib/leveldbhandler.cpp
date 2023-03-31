@@ -14,15 +14,15 @@
 #include "mcbekey.hpp"
 
 #ifdef _WIN64
-PyObject __declspec(dllexport) *py_listkeys(PyObject* self, PyObject* args);
-PyObject __declspec(dllexport) *py_loadbinary(PyObject* self, PyObject* args);
-PyObject __declspec(dllexport) *py_writebinary(PyObject* self, PyObject* args);
-PyObject __declspec(dllexport) *py_rmkey(PyObject* self, PyObject* args);
-PyObject __declspec(dllexport) *py_readNBT(PyObject* self, PyObject* args);
-PyObject __declspec(dllexport) *py_readNBT_big(PyObject* self, PyObject* args);
-PyObject __declspec(dllexport) *py_writeNBT(PyObject* self, PyObject* args);
-PyObject __declspec(dllexport) *py_readSubchunk(PyObject* self, PyObject* args);
-PyObject __declspec(dllexport) *py_writeSubchunk(PyObject* self, PyObject* args);
+extern "C" { PyObject __declspec(dllexport) *py_listkeys(PyObject* self, PyObject* args)};
+extern "C" { PyObject __declspec(dllexport) *py_loadbinary(PyObject* self, PyObject* args)};
+extern "C" { PyObject __declspec(dllexport) *py_writebinary(PyObject* self, PyObject* args)};
+extern "C" { PyObject __declspec(dllexport) *py_rmkey(PyObject* self, PyObject* args)};
+extern "C" { PyObject __declspec(dllexport) *py_readNBT(PyObject* self, PyObject* args)};
+extern "C" { PyObject __declspec(dllexport) *py_readNBT_big(PyObject* self, PyObject* args)};
+extern "C" { PyObject __declspec(dllexport) *py_writeNBT(PyObject* self, PyObject* args)};
+extern "C" { PyObject __declspec(dllexport) *py_readSubchunk(PyObject* self, PyObject* args)};
+extern "C" { PyObject __declspec(dllexport) *py_writeSubchunk(PyObject* self, PyObject* args)};
 #else
 PyObject* py_listkeys(PyObject* self, PyObject* args);
 PyObject* py_loadbinary(PyObject* self, PyObject* args);
@@ -59,10 +59,10 @@ static struct PyModuleDef leveldModule = {
  
 // Initializes myModule
 #ifdef _WIN64
-DLLEXPORT PyObject* PyInit_leveldbhandler(void)
+extern "C" { PyObject* __declspec(dllexport) PyInit_leveldbhandler(void)
 {
     return PyModule_Create(&leveldModule);
-};
+};}
 #else
 PyMODINIT_FUNC PyInit_leveldbhandler(void)
 {
