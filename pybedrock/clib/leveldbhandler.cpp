@@ -1,6 +1,5 @@
 #define PY_SSIZE_T_CLEAN
 #include <Python.h>
-#pragma comment (lib,"python3.lib")
 
 #include <cassert>
 #include <cstdio>
