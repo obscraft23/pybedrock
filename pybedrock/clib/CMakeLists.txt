@@ -75,8 +75,9 @@ else()
   set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -frtti -fpic")
   set(CMAKE_C_COMPILER "gcc")
   set(CMAKE_CXX_COMPILER "g++")
-  add_compile_options("-Wl -no_weak_imports")
+  
   set (CMAKE_EXE_LINKER_FLAGS ${PLATFORM_LDFLAGS})
+  link_libraries("-Wl,-no_weak_imports")
 endif()
 
 ################################################################################
