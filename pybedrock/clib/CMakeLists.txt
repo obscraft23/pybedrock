@@ -76,7 +76,7 @@ else()
   set(CMAKE_C_COMPILER "gcc")
   set(CMAKE_CXX_COMPILER "g++")
   
-  set (CMAKE_EXE_LINKER_FLAGS ${PLATFORM_LDFLAGS})
+  set (CMAKE_SHARED_LINKER_FLAGS "-Wl,-no_weak_imports")
   link_libraries("-Wl,-no_weak_imports")
 endif()
 
