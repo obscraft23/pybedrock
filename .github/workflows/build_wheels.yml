@@ -26,6 +26,7 @@ jobs:
       uses: pypa/cibuildwheel@v2.12.1
       env:
         CIBW_ARCHS_WINDOWS: AMD64
+        CIBW_SKIP: pp*
     
     - uses: actions/upload-artifact@v3
       with:
