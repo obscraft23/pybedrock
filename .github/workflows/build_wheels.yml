@@ -43,6 +43,7 @@ jobs:
       - name: install cmake
         run: |
           brew install gcc
+          brew install ninja
           ls -l /usr/local/bin | grep g++
           ls -l /usr/local/bin | grep gcc
           
