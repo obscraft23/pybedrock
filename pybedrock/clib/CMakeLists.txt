@@ -76,9 +76,9 @@ else()
   set(CMAKE_C_COMPILER "gcc")
   set(CMAKE_CXX_COMPILER "g++")
   
-  set (CMAKE_SHARED_LINKER_FLAGS "-Wl,-no_weak_imports")
-  link_libraries("-Wl,-no_weak_imports")
-  add_compile_options("-Werror=partial-availability")
+  #set (CMAKE_SHARED_LINKER_FLAGS "-Wl,-no_weak_imports")
+  #link_libraries("-Wl,-no_weak_imports")
+  #add_compile_options("-Werror=partial-availability")
 endif()
 
 ################################################################################
@@ -102,6 +102,7 @@ mark_as_advanced(CMAKE_DATA_DIR CMAKE_DOC_DIR CMAKE_MAN_DIR)
 if( ${CMAKE_VERSION} LESS 3.12 )
     find_package(PythonLibs REQUIRED)
     include_directories(${PYTHON_INCLUDE_DIRS})
+    
 else()
     find_package(Python COMPONENTS Interpreter Development)
     include_directories(${Python_INCLUDE_DIRS})
@@ -123,9 +124,10 @@ add_library(leveldbhandler SHARED
   slurp.hpp
 )
 target_link_libraries(leveldbhandler leveldb)
-target_include_directories(leveldbhandler PUBLIC "${CMAKE_CURRENT_BINARY_DIR}")
+target_include_directories(leveldbhandler PUBLIC ${CMAKE_CURRENT_BINARY_DIR})
 target_include_directories(leveldbhandler PUBLIC ${PYTHON_INCLUDE_DIRS})
 target_link_libraries(leveldbhandler PUBLIC ${PYTHON_LIBRARIES})
+
 # Enable Warnings
 #target_compile_options(leveldbhandler PUBLIC -fPIC)# -Wall -Wextra)
 #SET(CMAKE_C_ARCHIVE_FINISH   "<CMAKE_RANLIB> -no_warning_for_no_symbols -c <TARGET>")
