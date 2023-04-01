@@ -69,6 +69,7 @@ if(CMAKE_CXX_COMPILER_ID STREQUAL "MSVC")
   string(REGEX REPLACE "/GR" "" CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS}")
   set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} /GR")
   set(CMAKE_POSITION_INDEPENDENT_CODE ON)
+  add_compile_options("-Wl,-rpath,")
 else()
   # Enable RTTI.
   string(REGEX REPLACE "-frtti" "" CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS}")
