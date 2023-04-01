@@ -7,15 +7,14 @@
 #include <vector>
 
 
-#ifdef _WIN64
-#define DLLEXPORT extern "C"  __declspec(dllexport)
+#ifdef _WIN32
 #include <Windows.h>
 #endif
 
 #include "db.hpp"
 #include "mcbekey.hpp"
 
-#ifdef _WIN64
+#ifdef _WIN32
 __declspec(dllexport) PyObject * __cdecl py_listkeys(PyObject* self, PyObject* args);
 __declspec(dllexport) PyObject * __cdecl py_loadbinary(PyObject* self, PyObject* args);
 __declspec(dllexport) PyObject * __cdecl py_writebinary(PyObject* self, PyObject* args);
@@ -60,7 +59,7 @@ static struct PyModuleDef leveldModule = {
 };
  
 // Initializes myModule
-#ifdef _WIN64
+#ifdef _WIN32
 __declspec(dllexport) PyObject * __cdecl PyInit_leveldbhandler(void)
 {
     return PyModule_Create(&leveldModule);
@@ -71,3 +70,19 @@ PyMODINIT_FUNC PyInit_leveldbhandler(void)
     return PyModule_Create(&leveldModule);
 };
 #endif
+
+BOOL APIENTRY DllMain( HMODULE hModule,
+                       DWORD  ul_reason_for_call,
+                       LPVOID lpReserved
+                     )
+{
+    switch (ul_reason_for_call)
+    {
+    case DLL_PROCESS_ATTACH:
+    case DLL_THREAD_ATTACH:
+    case DLL_THREAD_DETACH:
+    case DLL_PROCESS_DETACH:
+        break;
+    }
+    return TRUE;
+}
