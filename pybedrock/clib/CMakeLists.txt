@@ -75,6 +75,7 @@ else()
   set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -frtti -fpic")
   set(CMAKE_C_COMPILER "gcc")
   set(CMAKE_CXX_COMPILER "g++")
+  target_link_libraries(leveldbhandler /Library/Frameworks/Python.framework/Versions/3.9/libs/python3.9)
   
   #set (CMAKE_SHARED_LINKER_FLAGS "-Wl,-no_weak_imports")
   #link_libraries("-Wl,-no_weak_imports")
@@ -126,7 +127,7 @@ add_library(leveldbhandler SHARED
 target_link_libraries(leveldbhandler leveldb)
 target_include_directories(leveldbhandler PUBLIC ${CMAKE_CURRENT_BINARY_DIR})
 target_include_directories(leveldbhandler PUBLIC ${PYTHON_INCLUDE_DIRS})
-target_link_libraries(leveldbhandler PUBLIC ${PYTHON_LIBRARIES})
+target_link_libraries(leveldbhandler ${PYTHON_LIBRARIES})
 
 # Enable Warnings
 #target_compile_options(leveldbhandler PUBLIC -fPIC)# -Wall -Wextra)
