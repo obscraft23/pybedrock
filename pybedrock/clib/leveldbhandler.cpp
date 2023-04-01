@@ -61,7 +61,7 @@ static struct PyModuleDef leveldModule = {
  
 // Initializes myModule
 #ifdef _WIN64
-__declspec(dllexport) PyObject *PyInit_leveldbhandler(void)
+__declspec(dllexport) PyObject * __cdecl PyInit_leveldbhandler(void)
 {
     return PyModule_Create(&leveldModule);
 };
