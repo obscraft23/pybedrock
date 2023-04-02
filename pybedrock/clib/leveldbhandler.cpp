@@ -59,3 +59,24 @@ PyMODINIT_FUNC PyInit_leveldbhandler(void)
 {
     return PyModule_Create(&leveldModule);
 };
+
+#ifdef _WIN32
+int main(int argc, char *argv[])
+{
+    /* Add a built-in module, before Py_Initialize */
+    PyImport_AppendInittab("leveldbhandler", PyInit_leveldbhandler);
+
+    /* Pass argv[0] to the Python interpreter */
+    Py_SetProgramName(program);
+
+    /* Initialize the Python interpreter.  Required. */
+    Py_Initialize();
+
+    /* Optionally import the module; alternatively,
+       import can be deferred until the embedded script
+       imports it. */
+    PyImport_ImportModule("leveldbhandler");
+
+    return 0;
+};
+#endif
