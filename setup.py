@@ -5,6 +5,7 @@ from pip._internal import main as _main
 import shutil
 import platform
 import tarfile
+import sys
 
 try:
     from skbuild import setup
@@ -93,10 +94,13 @@ else:
     print("#######")
     print(os.path.abspath(sysconfig.get_path('include')))
     print("#######")
+    pyversion = str(sys.version_info.major)+"."+str(sys.version_info.minor)
+    os.environ["PYTHON_MAC_LIBRARIES_ENV"] = "/Library/Frameworks/Python.framework/Versions/"+pyversion+"/lib/libpython"+pyversion+".dylib"
+
     setup(
         name='pybedrock',
         packages=['pybedrock'],
-
+        
         cmake_install_dir="pybedrock/cmodules",
         cmake_source_dir = "./pybedrock/clib",
         cmake_args=['-Wno-error=unused-command-line-argument-hard-error-in-future'],

@@ -131,7 +131,7 @@ target_link_libraries(leveldbhandler ${PYTHON_LIBRARIES})
 if(CMAKE_CXX_COMPILER_ID STREQUAL "MSVC")
  message("test")
 else()
-  set(PYTHON_MAC_LIBRARIES /Library/Frameworks/Python.framework/Versions/3.9/lib/libpython3.9.dylib)
+  set(PYTHON_MAC_LIBRARIES $ENV{PYTHON_MAC_LIBRARIES_ENV})
   target_link_libraries(leveldbhandler ${PYTHON_MAC_LIBRARIES})
 endif()
 # Enable Warnings
