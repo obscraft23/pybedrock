@@ -7,7 +7,10 @@ PyMODINIT_FUNC PyInit_leveldbhandler(void);
 BOOL WINAPI DllMain(HINSTANCE hinstDLL,DWORD fdwReason,LPVOID lpReserved) {
     switch( fdwReason ) {
         case DLL_PROCESS_ATTACH:
-            PyImport_AppendInittab("leveldbhandler", PyInit_leveldbhandler);
+            //PyImport_AppendInittab("leveldbhandler", PyInit_leveldbhandler);
+            if (PyImport_AppendInittab("leveldbhandler", &PyInit_leveldbhandler) == -1) {
+                printf("module init error\n"); exit(1);
+            }
             Py_Initialize();
             break;
         case DLL_PROCESS_DETACH:
