@@ -5,7 +5,7 @@ except:
   try:
     from pybedrock.cmodules.lib64.libleveldbhandler import *
   except:
-    from pybedrock.cmodules.lib64.leveldbhandler import *
+    from pybedrock.cmodules.lib.leveldbhandler import *
 
 __copyright__    = 'Copyright (C) 2023 obscraft23'
 __version__      = '0.0.6'

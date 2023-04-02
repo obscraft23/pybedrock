@@ -76,17 +76,3 @@ PyMODINIT_FUNC PyInit_libleveldbhandler(void)
     return PyModule_Create(&leveldModule);
 };
 #endif
-/*
-#ifdef _WIN32
-int main(int argc, char *argv[])
-{
-    PyImport_AppendInittab("leveldbhandler", PyInit_leveldbhandler);
-
-    Py_Initialize();
-
-    PyImport_ImportModule("leveldbhandler");
-
-    return 0;
-};
-#endif
-*/

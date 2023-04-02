@@ -110,7 +110,6 @@ endif()
 
 add_library(leveldbhandler SHARED
   leveldbhandler.cpp
-  #dllmain.cpp
   listkeys.cpp
   dumpkey.cpp
   writekey.cpp
