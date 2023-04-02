@@ -6,11 +6,6 @@
 #include <memory>
 #include <vector>
 
-
-#ifdef _WIN32
-#include <Windows.h>
-#endif
-
 #include "db.hpp"
 #include "mcbekey.hpp"
 
@@ -59,45 +54,8 @@ static PyModuleDef leveldModule = {
 };
  
 // Initializes myModule
-#ifdef _WIN32
+
 PyMODINIT_FUNC PyInit_leveldbhandler(void)
 {
     return PyModule_Create(&leveldModule);
 };
-BOOL WINAPI DllMain(HINSTANCE hinstDLL,DWORD fdwReason,LPVOID lpReserved) {
-    switch( fdwReason ) {
-        case DLL_PROCESS_ATTACH:
-            PyImport_AppendInittab("leveldbhandler", &PyInit_leveldbhandler);
-            Py_Initialize();
-            break;
-        case DLL_PROCESS_DETACH:
-            Py_Finalize();
-            break;
-    }
-    return TRUE;
-};
-#else
-PyMODINIT_FUNC PyInit_leveldbhandler(void)
-{
-    return PyModule_Create(&leveldModule);
-};
-#endif
-/*
-#ifdef _WIN32
-BOOL APIENTRY DllMain( HMODULE hModule,
-                       DWORD  ul_reason_for_call,
-                       LPVOID lpReserved
-                     )
-{
-    switch (ul_reason_for_call)
-    {
-    case DLL_PROCESS_ATTACH:
-    case DLL_THREAD_ATTACH:
-    case DLL_THREAD_DETACH:
-    case DLL_PROCESS_DETACH:
-        break;
-    }
-    return TRUE;
-}
-#endif
-*/

@@ -60,20 +60,21 @@ jobs:
         uses: pypa/cibuildwheel@v2.12.1
         env:
           CIBW_BUILD: cp39-*
-          CIBW_ARCHS: x86_64 universal2 arm64
+          CIBW_ARCHS: x86_64 
+          #universal2 arm64
           #LDFLAGS: -Wl,-no_weak_imports
       
-      - name: for py38
-        run: |
-          curl -o /tmp/Python38.pkg https://www.python.org/ftp/python/3.8.10/python-3.8.10-macos11.pkg
-          sudo installer -pkg /tmp/Python38.pkg -target /
-          sh "/Applications/Python 3.8/Install Certificates.command"
+      #- name: for py38
+      #  run: |
+      #    curl -o /tmp/Python38.pkg https://www.python.org/ftp/python/3.8.10/python-3.8.10-macos11.pkg
+      #    sudo installer -pkg /tmp/Python38.pkg -target /
+      #    sh "/Applications/Python 3.8/Install Certificates.command"
 
-      - name: Build wheels2
-        uses: pypa/cibuildwheel@v2.12.1
-        env:
-          CIBW_BUILD: cp38-*
-          CIBW_ARCHS: x86_64 universal2 arm64
+      #- name: Build wheels2
+      #  uses: pypa/cibuildwheel@v2.12.1
+      #  env:
+      #    CIBW_BUILD: cp38-*
+      #    CIBW_ARCHS: x86_64 universal2 arm64
           #LDFLAGS: -Wl,-no_weak_imports
 
       - uses: actions/upload-artifact@v3
