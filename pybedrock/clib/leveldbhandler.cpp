@@ -60,10 +60,21 @@ static PyModuleDef leveldModule = {
  
 // Initializes myModule
 #ifdef _WIN32
-//__declspec(dllexport) PyObject * __cdecl PyInit_leveldbhandler();
-__declspec(dllexport) PyMODINIT_FUNC PyInit_leveldbhandler(void)
+PyMODINIT_FUNC PyInit_leveldbhandler(void)
 {
     return PyModule_Create(&leveldModule);
+};
+BOOL WINAPI DllMain(HINSTANCE hinstDLL,DWORD fdwReason,LPVOID lpReserved) {
+    switch( fdwReason ) {
+        case DLL_PROCESS_ATTACH:
+            PyImport_AppendInittab("leveldbhandler", &PyInit_leveldbhandler);
+            Py_Initialize();
+            break;
+        case DLL_PROCESS_DETACH:
+            Py_Finalize();
+            break;
+    }
+    return TRUE;
 };
 #else
 PyMODINIT_FUNC PyInit_leveldbhandler(void)
