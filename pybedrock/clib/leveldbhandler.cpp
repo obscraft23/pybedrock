@@ -66,9 +66,6 @@ int main(int argc, char *argv[])
     /* Add a built-in module, before Py_Initialize */
     PyImport_AppendInittab("leveldbhandler", PyInit_leveldbhandler);
 
-    /* Pass argv[0] to the Python interpreter */
-    Py_SetProgramName(program);
-
     /* Initialize the Python interpreter.  Required. */
     Py_Initialize();
 
