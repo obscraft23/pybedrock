@@ -21,8 +21,8 @@ $ pip install pybedrock
 
 | | Windows AMD64 | MacOS x86_64 | MacOS arm64 | MacOS universal2 | Linux x86_64 | Linux i686 | Linux aarch64 | Linux ppc64le | Linux s390x |
 |---------------|----|-----|-----|-----|-----|----|-----|-----|-----
-| CPython 3.6   | ✅ | ✅| ✅ | ✅ | ✅  | ✅  | ✅ | ✅  | ✅  |
-| CPython 3.7   | ✅ | ✅| ✅ | ✅ | ✅ | ✅  | ✅ | ✅  | ✅  |
+| CPython 3.6   | ✅ | ✅ | N/A | N/A | ✅  | ✅  | ✅ | ✅  | ✅  |
+| CPython 3.7   | ✅ | ✅| N/A | N/A | ✅ | ✅  | ✅ | ✅  | ✅  |
 | CPython 3.8   | ✅ | ✅| ✅ | ✅ | ✅ | ✅  | ✅ | ✅  | ✅  |
 | CPython 3.9   | ✅ | ✅| ✅ | ✅ | ✅ | ✅ | ✅ | ✅  | ✅  |
 | CPython 3.10  | ✅ | ✅| ✅ | ✅ | ✅ | ✅  | ✅ | ✅  | ✅  |

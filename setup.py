@@ -46,9 +46,10 @@ else:
     os.environ["PYTHON_MAC_LIBRARIES_ENV"] = "/Library/Frameworks/Python.framework/Versions/"+pyversion+"/lib/libpython"+pyversion+".dylib"
     if platform.system() == "Linux":
         os.environ["PYTHON_MAC_LIBRARIES_ON"] = "off"
+        cmake_args = []
     else:
         os.environ["PYTHON_MAC_LIBRARIES_ON"] = "on"
-    cmake_args = ['-Wno-error=unused-command-line-argument-hard-error-in-future']
+        cmake_args = ['-Wno-error=unused-command-line-argument-hard-error-in-future']
 
 setup(
     name='pybedrock',
