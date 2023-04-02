@@ -8,7 +8,6 @@
 
 
 #ifdef _WIN32
-
 #include <Windows.h>
 #endif
 
@@ -55,14 +54,14 @@ static PyModuleDef leveldModule = {
     PyModuleDef_HEAD_INIT,
     "leveldbhandler",
     "read/write mcbe leveldb",
-    0,
+    -1,
     leveldbMethods
 };
  
 // Initializes myModule
 #ifdef _WIN32
-__declspec(dllexport) PyObject * __cdecl PyInit_leveldbhandler();
-PyObject *PyInit_leveldbhandler()
+//__declspec(dllexport) PyObject * __cdecl PyInit_leveldbhandler();
+__declspec(dllexport) PyMODINIT_FUNC PyInit_leveldbhandler(void)
 {
     return PyModule_Create(&leveldModule);
 };
@@ -72,6 +71,7 @@ PyMODINIT_FUNC PyInit_leveldbhandler(void)
     return PyModule_Create(&leveldModule);
 };
 #endif
+/*
 #ifdef _WIN32
 BOOL APIENTRY DllMain( HMODULE hModule,
                        DWORD  ul_reason_for_call,
@@ -89,3 +89,4 @@ BOOL APIENTRY DllMain( HMODULE hModule,
     return TRUE;
 }
 #endif
+*/
