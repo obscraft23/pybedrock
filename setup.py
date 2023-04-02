@@ -9,12 +9,9 @@ import sys
 
 try:
     from skbuild import setup
-    import requests
 except:
     _main(['install', 'scikit-build'])
-    _main(['install', 'requests'])
     from skbuild import setup
-    import requests
 
 here = path.abspath(path.dirname(__file__))
 
@@ -41,41 +38,7 @@ if platform.system() == 'Windows':
             os.environ["LIB"] += ";"+libdir+";"+r"C:\vcpkg\installed\x64-windows\lib"
         except:
             os.environ["LIB"] = libdir+";"+r"C:\vcpkg\installed\x64-windows\lib"
-        
-    setup(
-        name='pybedrock',
-        packages=['pybedrock'],
-
-        cmake_install_dir="pybedrock/cmodules",
-        cmake_source_dir = "./pybedrock/clib",
-        cmake_args=['-DCMAKE_BUILD_TYPE=Release','-DVCPKG_TARGET_TRIPLET=x64-windows',r'-DCMAKE_TOOLCHAIN_FILE=C:\vcpkg\scripts\buildsystems\vcpkg.cmake'],
-
-        version='0.0.6',
-
-        license='MIT',
-
-        install_requires=['numpy'],
-        author='obscraft23',
-        author_email='obscraft23@gmail.com',
-
-        url='https://github.com/obscraft23/pybedrock',
-
-        description='A Python package to read/write Minecraft Bedrock leveldb data',
-        long_description=long_description,
-        long_description_content_type='text/markdown',
-        keywords='Minecraft Bedrock leveldb',
-
-        classifiers=[
-            'License :: OSI Approved :: MIT License',
-            'Programming Language :: Python :: 3.6',
-            'Programming Language :: Python :: 3.7',
-            'Programming Language :: Python :: 3.8',
-            'Programming Language :: Python :: 3.9',
-            'Programming Language :: Python :: 3.10',
-            'Programming Language :: Python :: 3.11',
-            'Programming Language :: C++',
-        ],
-    )
+    cmake_args=['-DCMAKE_BUILD_TYPE=Release','-DVCPKG_TARGET_TRIPLET=x64-windows',r'-DCMAKE_TOOLCHAIN_FILE=C:\vcpkg\scripts\buildsystems\vcpkg.cmake']
 
 else:
     libdir = sysconfig.get_path('include').replace("Include","libs")
@@ -85,37 +48,38 @@ else:
         os.environ["PYTHON_MAC_LIBRARIES_ON"] = "off"
     else:
         os.environ["PYTHON_MAC_LIBRARIES_ON"] = "on"
+    cmake_args = ['-Wno-error=unused-command-line-argument-hard-error-in-future']
 
-    setup(
-        name='pybedrock',
-        packages=['pybedrock'],
-        
-        cmake_install_dir="pybedrock/cmodules",
-        cmake_source_dir = "./pybedrock/clib",
-        cmake_args=['-Wno-error=unused-command-line-argument-hard-error-in-future'],
-        version='0.0.6',
+setup(
+    name='pybedrock',
+    packages=['pybedrock'],
+    
+    cmake_install_dir="pybedrock/cmodules",
+    cmake_source_dir = "./pybedrock/clib",
+    cmake_args=cmake_args,
+    version='0.0.6',
 
-        license='MIT',
+    license='MIT',
 
-        install_requires=['numpy'],
-        author='obscraft23',
-        author_email='obscraft23@gmail.com',
+    install_requires=['numpy'],
+    author='obscraft23',
+    author_email='obscraft23@gmail.com',
 
-        url='https://github.com/obscraft23/pybedrock',
+    url='https://github.com/obscraft23/pybedrock',
 
-        description='A Python package to read/write Minecraft Bedrock leveldb data',
-        long_description=long_description,
-        long_description_content_type='text/markdown',
-        keywords='Minecraft Bedrock leveldb',
+    description='A Python package to read/write Minecraft Bedrock leveldb data',
+    long_description=long_description,
+    long_description_content_type='text/markdown',
+    keywords='Minecraft Bedrock leveldb',
 
-        classifiers=[
-            'License :: OSI Approved :: MIT License',
-            'Programming Language :: Python :: 3.6',
-            'Programming Language :: Python :: 3.7',
-            'Programming Language :: Python :: 3.8',
-            'Programming Language :: Python :: 3.9',
-            'Programming Language :: Python :: 3.10',
-            'Programming Language :: Python :: 3.11',
-            'Programming Language :: C++',
-        ],
-    )
+    classifiers=[
+        'License :: OSI Approved :: MIT License',
+        'Programming Language :: Python :: 3.6',
+        'Programming Language :: Python :: 3.7',
+        'Programming Language :: Python :: 3.8',
+        'Programming Language :: Python :: 3.9',
+        'Programming Language :: Python :: 3.10',
+        'Programming Language :: Python :: 3.11',
+        'Programming Language :: C++',
+    ],
+)

@@ -19,17 +19,17 @@ $ pip install pybedrock
 
 **Currently, pre-build wheel packages only support Linux OS.**
 
-| | x86_64 | i686 | aarch64 | ppc64le | s390x |
-|---------------|----|-----|-----|-----|-----|
-| CPython 3.6   | ✅  | ✅  | ✅ | ✅  | ✅  |
-| CPython 3.7   | ✅ | ✅  | ✅ | ✅  | ✅  |
-| CPython 3.8   | ✅ | ✅  | ✅ | ✅  | ✅  |
-| CPython 3.9   | ✅ | ✅ | ✅ | ✅  | ✅  |
-| CPython 3.10  | ✅ | ✅  | ✅ | ✅  | ✅  |
-| CPython 3.11  | ✅ | ✅  | ✅ | ✅  | ✅  |
-| PyPy 3.7 v7.3 | ✅ | ✅  | ✅ | N/A | N/A |
-| PyPy 3.8 v7.3 | ✅ | ✅  | ✅ | N/A | N/A |
-| PyPy 3.9 v7.3 | ✅ | ✅  | ✅ | N/A | N/A |
+| | Windows AMD64 | MacOS x86_64 | MacOS arm64 | MacOS universal2 | Linux x86_64 | Linux i686 | Linux aarch64 | Linux ppc64le | Linux s390x |
+|---------------|----|-----|-----|-----|-----|----|-----|-----|-----
+| CPython 3.6   | ✅ | ✅| ✅ | ✅ | ✅  | ✅  | ✅ | ✅  | ✅  |
+| CPython 3.7   | ✅ | ✅| ✅ | ✅ | ✅ | ✅  | ✅ | ✅  | ✅  |
+| CPython 3.8   | ✅ | ✅| ✅ | ✅ | ✅ | ✅  | ✅ | ✅  | ✅  |
+| CPython 3.9   | ✅ | ✅| ✅ | ✅ | ✅ | ✅ | ✅ | ✅  | ✅  |
+| CPython 3.10  | ✅ | ✅| ✅ | ✅ | ✅ | ✅  | ✅ | ✅  | ✅  |
+| CPython 3.11  | ✅ | ✅| ✅ | ✅ | ✅ | ✅  | ✅ | ✅  | ✅  |
+| PyPy 3.7 v7.3 | N/A | N/A | N/A | N/A | ✅ | ✅  | ✅ | N/A | N/A |
+| PyPy 3.8 v7.3 | N/A | N/A | N/A | N/A | ✅ | ✅  | ✅ | N/A | N/A |
+| PyPy 3.9 v7.3 | N/A | N/A | N/A | N/A | ✅ | ✅  | ✅ | N/A | N/A |
 
 ## Usage
 
