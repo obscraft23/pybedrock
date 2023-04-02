@@ -2,7 +2,10 @@ from pybedrock.main import *
 try:
   from pybedrock.cmodules.lib.libleveldbhandler import *
 except:
-  from pybedrock.cmodules.lib64.libleveldbhandler import *
+  try:
+    from pybedrock.cmodules.lib64.libleveldbhandler import *
+  except:
+    from pybedrock.cmodules.lib64.leveldbhandler import *
 
 __copyright__    = 'Copyright (C) 2023 obscraft23'
 __version__      = '0.0.6'

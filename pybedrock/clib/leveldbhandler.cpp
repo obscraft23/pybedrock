@@ -45,6 +45,7 @@ static PyMethodDef leveldbMethods[] = {
 };
  
 // myModule definition struct
+#ifdef _WIN32
 static PyModuleDef leveldModule = {
     PyModuleDef_HEAD_INIT,
     "leveldbhandler",
@@ -59,21 +60,33 @@ PyMODINIT_FUNC PyInit_leveldbhandler(void)
 {
     return PyModule_Create(&leveldModule);
 };
+#else
+static PyModuleDef leveldModule = {
+    PyModuleDef_HEAD_INIT,
+    "libleveldbhandler",
+    "read/write mcbe leveldb",
+    -1,
+    leveldbMethods
+};
+ 
+// Initializes myModule
 
+PyMODINIT_FUNC PyInit_libleveldbhandler(void)
+{
+    return PyModule_Create(&leveldModule);
+};
+#endif
+/*
 #ifdef _WIN32
 int main(int argc, char *argv[])
 {
-    /* Add a built-in module, before Py_Initialize */
     PyImport_AppendInittab("leveldbhandler", PyInit_leveldbhandler);
 
-    /* Initialize the Python interpreter.  Required. */
     Py_Initialize();
 
-    /* Optionally import the module; alternatively,
-       import can be deferred until the embedded script
-       imports it. */
     PyImport_ImportModule("leveldbhandler");
 
     return 0;
 };
 #endif
+*/

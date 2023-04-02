@@ -4,7 +4,7 @@ import os
 from pip._internal import main as _main
 import shutil
 import platform
-import tarfile
+import sysconfig
 import sys
 
 try:
@@ -32,27 +32,16 @@ with open(path.join(here, 'README.md'), encoding='utf-8') as f:
     long_description = f.read()
 
 if platform.system() == 'Windows':
-    import sysconfig
+    
     libdir = sysconfig.get_path('include').replace("Include","libs")
-    print("########################################################")
-    print(platform.system())
+    
     if libdir != None:
         os.environ["LIBPATH"] = libdir+";"+r"C:\vcpkg\installed\x64-windows\lib"
         try:
             os.environ["LIB"] += ";"+libdir+";"+r"C:\vcpkg\installed\x64-windows\lib"
         except:
             os.environ["LIB"] = libdir+";"+r"C:\vcpkg\installed\x64-windows\lib"
-        print(libdir)
         
-        print(os.environ["LIB"])
-        print(os.environ["LIBPATH"])
-        #print(os.environ["ZLIB_INCLUDE_DIRS"])
-        #print(os.environ["ZLIB_LIBRARIES"])
-
-    else:
-        print(here)
-        print("NO LIB!!!!!")
-    print("########################################################")
     setup(
         name='pybedrock',
         packages=['pybedrock'],
@@ -89,13 +78,13 @@ if platform.system() == 'Windows':
     )
 
 else:
-    import sysconfig
     libdir = sysconfig.get_path('include').replace("Include","libs")
-    print("#######")
-    print(os.path.abspath(sysconfig.get_path('include')))
-    print("#######")
     pyversion = str(sys.version_info.major)+"."+str(sys.version_info.minor)
     os.environ["PYTHON_MAC_LIBRARIES_ENV"] = "/Library/Frameworks/Python.framework/Versions/"+pyversion+"/lib/libpython"+pyversion+".dylib"
+    if platform.system() == "Linux":
+        os.environ["PYTHON_MAC_LIBRARIES_ON"] = "off"
+    else:
+        os.environ["PYTHON_MAC_LIBRARIES_ON"] = "on"
 
     setup(
         name='pybedrock',

@@ -110,7 +110,7 @@ endif()
 
 add_library(leveldbhandler SHARED
   leveldbhandler.cpp
-  dllmain.cpp
+  #dllmain.cpp
   listkeys.cpp
   dumpkey.cpp
   writekey.cpp
@@ -130,15 +130,12 @@ target_include_directories(leveldbhandler PUBLIC ${PYTHON_INCLUDE_DIRS})
 target_link_libraries(leveldbhandler ${PYTHON_LIBRARIES})
 
 if(CMAKE_CXX_COMPILER_ID STREQUAL "MSVC")
- message("test")
-else()
+  set_target_properties(leveldbhandler PROPERTIES SUFFIX ".pyd")
+elseif($ENV{PYTHON_MAC_LIBRARIES_ON} STREQUAL "on")
   set(PYTHON_MAC_LIBRARIES $ENV{PYTHON_MAC_LIBRARIES_ENV})
   target_link_libraries(leveldbhandler ${PYTHON_MAC_LIBRARIES})
-endif()
-# Enable Warnings
-#target_compile_options(leveldbhandler PUBLIC -fPIC)# -Wall -Wextra)
-#SET(CMAKE_C_ARCHIVE_FINISH   "<CMAKE_RANLIB> -no_warning_for_no_symbols -c <TARGET>")
-#SET(CMAKE_CXX_ARCHIVE_FINISH "<CMAKE_RANLIB> -no_warning_for_no_symbols -c <TARGET>")
+else(CMAKE_CXX_COMPILER_ID STREQUAL "MSVC")
+endif(CMAKE_CXX_COMPILER_ID STREQUAL "MSVC")
 
 if(CMAKE_CXX_COMPILER_ID STREQUAL "MSVC")
   set(CMAKE_POSITION_INDEPENDENT_CODE ON)
