@@ -60,7 +60,7 @@ jobs:
         uses: pypa/cibuildwheel@v2.12.1
         env:
           #CIBW_BUILD: cp39-*
-          CIBW_ARCHS: x86_64 arm64 universal2
+          CIBW_ARCHS: x86_64 universal2
           #LDFLAGS: -Wl,-no_weak_imports
 
       - uses: actions/upload-artifact@v3
