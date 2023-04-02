@@ -70,11 +70,7 @@ jobs:
           path: ./wheelhouse/*.whl
   
   Linux-build-1:
-    name: Build wheels on ${{ matrix.os }}
-    runs-on: ${{ matrix.os }}
-    strategy:
-      matrix:
-        os: [ubuntu-latest]
+    runs-on: ubuntu-latest
 
     steps:
       - uses: actions/checkout@v3
@@ -97,11 +93,7 @@ jobs:
           path: ./wheelhouse/*.whl
   
   Linux-build-2:
-    name: Build wheels on ${{ matrix.os }}
-    runs-on: ${{ matrix.os }}
-    strategy:
-      matrix:
-        os: [ubuntu-latest]
+    runs-on: ubuntu-latest
 
     steps:
       - uses: actions/checkout@v3
@@ -124,11 +116,7 @@ jobs:
           path: ./wheelhouse/*.whl
   
   Linux-build-3:
-    name: Build wheels on ${{ matrix.os }}
-    runs-on: ${{ matrix.os }}
-    strategy:
-      matrix:
-        os: [ubuntu-latest]
+    runs-on: ubuntu-latest
 
     steps:
       - uses: actions/checkout@v3
@@ -151,11 +139,7 @@ jobs:
           path: ./wheelhouse/*.whl
   
   Linux-build-4:
-    name: Build wheels on ${{ matrix.os }}
-    runs-on: ${{ matrix.os }}
-    strategy:
-      matrix:
-        os: [ubuntu-latest]
+    runs-on: ubuntu-latest
 
     steps:
       - uses: actions/checkout@v3
@@ -179,7 +163,6 @@ jobs:
   
   make_sdist:
     name: Make SDist
-    needs: ["win-build-1","mac-build-1","Linux-build-1","Linux-build-2","Linux-build-3","Linux-build-4"]
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v3
