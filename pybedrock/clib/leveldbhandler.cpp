@@ -50,17 +50,17 @@ static PyMethodDef leveldbMethods[] = {
 };
  
 // myModule definition struct
-static struct PyModuleDef leveldModule = {
+static PyModuleDef leveldModule = {
     PyModuleDef_HEAD_INIT,
     "leveldbhandler",
     "read/write mcbe leveldb",
-    -1,
+    0,
     leveldbMethods
 };
  
 // Initializes myModule
 #ifdef _WIN32
-__declspec(dllexport) PyObject * __cdecl PyInit_leveldbhandler(void)
+__declspec(dllexport) PyObject * __cdecl PyInit_leveldbhandler()
 {
     return PyModule_Create(&leveldModule);
 };
