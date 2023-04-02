@@ -8,7 +8,7 @@
 
 
 #ifdef _WIN32
-#include "stdafx.h"
+
 #include <Windows.h>
 #endif
 
@@ -61,7 +61,8 @@ static PyModuleDef leveldModule = {
  
 // Initializes myModule
 #ifdef _WIN32
-__declspec(dllexport) PyObject * __cdecl PyInit_leveldbhandler()
+__declspec(dllexport) PyObject * __cdecl PyInit_leveldbhandler();
+PyObject *PyInit_leveldbhandler()
 {
     return PyModule_Create(&leveldModule);
 };

@@ -59,7 +59,7 @@ jobs:
       - name: Build wheels
         uses: pypa/cibuildwheel@v2.12.1
         env:
-          CIBW_BUILD: cp38-*
+          CIBW_BUILD: cp310-*
           LDFLAGS: -Wl,-no_weak_imports
 
       - uses: actions/upload-artifact@v3
