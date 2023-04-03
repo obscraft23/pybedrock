@@ -6,6 +6,7 @@ on:
 
 jobs:
   win-build-1:
+    if: contains(github.event.head_commit.message, 'release')
     runs-on: windows-latest
 
     steps:
@@ -33,6 +34,7 @@ jobs:
         path: ./wheelhouse/*.whl
   
   mac-build-1:
+    if: contains(github.event.head_commit.message, 'release')
     runs-on: macos-latest
     steps:
       - uses: actions/checkout@v3
@@ -70,6 +72,7 @@ jobs:
           path: ./wheelhouse/*.whl
   
   Linux-build-1:
+    if: contains(github.event.head_commit.message, 'release')
     runs-on: ubuntu-latest
 
     steps:
@@ -93,6 +96,7 @@ jobs:
           path: ./wheelhouse/*.whl
   
   Linux-build-2:
+    if: contains(github.event.head_commit.message, 'release')
     runs-on: ubuntu-latest
 
     steps:
@@ -116,6 +120,7 @@ jobs:
           path: ./wheelhouse/*.whl
   
   Linux-build-3:
+    if: contains(github.event.head_commit.message, 'release')
     runs-on: ubuntu-latest
 
     steps:
@@ -139,6 +144,7 @@ jobs:
           path: ./wheelhouse/*.whl
   
   Linux-build-4:
+    if: contains(github.event.head_commit.message, 'release')
     runs-on: ubuntu-latest
 
     steps:
@@ -162,6 +168,7 @@ jobs:
           path: ./wheelhouse/*.whl
   
   make_sdist:
+    if: contains(github.event.head_commit.message, 'release')
     name: Make SDist
     runs-on: ubuntu-latest
     steps:
