@@ -17,7 +17,7 @@ $ pip install pybedrock
 
 ## Supported versions
 
-**Currently, pre-build wheel packages only support Linux OS.**
+pybedrock supports Windoes, MacOS and Linux on various CPU architectures.
 
 | | Windows AMD64 | MacOS x86_64 | MacOS arm64 | MacOS universal2 | Linux x86_64 | Linux i686 | Linux aarch64 | Linux ppc64le | Linux s390x |
 |---------------|----|-----|-----|-----|-----|----|-----|-----|-----
@@ -33,7 +33,8 @@ $ pip install pybedrock
 
 ## Usage
 
-**The document is under development.**
+**The document is under development.** </br>
+Please see demostration codes as follows:
 
 ## Demonstrations
 
@@ -44,6 +45,8 @@ $ pip install pybedrock
 * Webapp to edit world data
 
 https://mcbe-edit-web.vercel.app/
+
+## Change log
 
 ## Contributing to the project
 
